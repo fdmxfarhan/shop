@@ -9,7 +9,172 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         link(rel='stylesheet', href='/css/home.css')
     body
+        header 
+            video(id="vid" src="/img/home/gray_aban.mp4" autoplay muted loop)
+            .overlay
+            .info 
+                .contact 
+                    i.fa.fa-phone 
+                    a(href="tel:09101741337")  09101741337
+                .contact 
+                    i.fa.fa-envelope 
+                    | info@example.com
+                a.link(href="/users/register") ثبت نام
+                    i.fa.fa-user
+                a.link(href="/users/login") ورود
+                    i.fa.fa-sign-in
+            nav 
+                a.logo(href="/") 
+                    img(src="/img/logo.png")
+                a.link(href="#") خانه
+                a.link(href="#") دوره های آموزشی
+                a.link(href="#") فروشگاه
+                a.link(href="#") خدمات
+                a.link(href="#") اخبار
+                a.link(href="#") تماس با ما
+                a.link(href="#") درباره ما
+                a.icon(href="#") 
+                    i.fa.fa-moon-o
+                a.icon(href="#") 
+                    i.fa.fa-search
+                a.icon(href="#") 
+                    i.fa.fa-shopping-cart
+            .title-view 
+                h2 دوره های آموزشی بورس و بازار های مالی
+                h1 با ما همیشه در 
+                    .orange سود 
+                    | باشید
+                h2.border تیم آموزشی مهندس علیرضا محرابی
+            img.top-logo(src="/img/logo.png")
         
-
+        section 
+            .square-links 
+                a.orange(href="#") 
+                    i.fa.fa-graduation-cap
+                    .text دوره‌های آموزشی
+                a.green(href="#") 
+                    i.fa.fa-microchip
+                    .text محصولات آموزشی
+                a.blue(href="#") 
+                    i.fa.fa-newspaper-o
+                    .text اخبار
+                a.red(href="#") 
+                    i.fa.fa-shopping-cart
+                    .text فروشگاه
+        section 
+            .click-links 
+                a(href="#") 
+                    h2 
+                        | کلیک کنید
+                        i.fa.fa-chevron-left 
+                    h1 بهترین 
+                        .orange دوره های آموزشی 
+                        | رایگان
+                    h2 
+                        i.fa.fa-chevron-right
+                        | کلیک کنید
+                a(href="#") 
+                    h2 
+                        | کلیک کنید
+                        i.fa.fa-chevron-left 
+                    h1 بهترین 
+                        .orange دوره های آموزشی 
+                        | رایگان
+                    h2 
+                        i.fa.fa-chevron-right
+                        | کلیک کنید
+        section 
+            .cards-view 
+                a(href="#") 
+                    img(src="/img/home/cover1.jpg")
+                    h1.title عنوان دوره
+                    .stars 
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        .star-text (5 امتیاز)
+                    .comments 
+                        i.fa.fa-comment
+                        | 65
+                    .price 3,000,000 تومان
+                a(href="#") 
+                    img(src="/img/home/cover2.jpg")
+                    h1.title عنوان دوره
+                    .stars 
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        .star-text (5 امتیاز)
+                    .comments 
+                        i.fa.fa-comment
+                        | 65
+                    .price 3,000,000 تومان
+                a(href="#") 
+                    img(src="/img/home/cover3.jpg")
+                    h1.title عنوان دوره
+                    .stars 
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        .star-text (5 امتیاز)
+                    .comments 
+                        i.fa.fa-comment
+                        | 65
+                    .price 3,000,000 تومان
+                a(href="#") 
+                    img(src="/img/home/cover4.jpg")
+                    h1.title عنوان دوره
+                    .stars 
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        i.fa.fa-star.star
+                        .star-text (5 امتیاز)
+                    .comments 
+                        i.fa.fa-comment
+                        | 65
+                    .price 3,000,000 تومان
+        footer 
+            .hidden-overflow
+                .contact 
+                    h1.title تماس بگیرید
+                    a(href="#") 
+                        i.fa.fa-map-marker
+                        | تهران، قیطریه، بلوار صبا، خیابان کریمی، خیابان واعظی، پلاک ۴۵، پژوهشسرای آسمان
+                    a(href="tel:09101741337")
+                        i.fa.fa-phone
+                        | 09101741337
+                    a(href="mailto:info@example.com") 
+                        i.fa.fa-envelope
+                        | info@example.com
+                .quick-links 
+                    h1.title پشتیبانی
+                    a(href="#") سوالات متداول
+                    a(href="#") ارسال تیکت
+                    a(href="#") قوانین و مقررات
+                    a(href="#") اطلاعات تماس
+                .quick-links 
+                    h1.title دسترسی سریع
+                    a(href="#") دوره های آزشی
+                    a(href="#") محصولات آموزشی
+                    a(href="#") آشنایی با ما
+                    a(href="#") مقالات
+                    a(href="#") اخبار
+                .news-letter 
+                    h1.title عضویت در خبرنامه
+                    .text برای دریافت پیشنهادات شگفت انگیز و تخفیف های ویژه شماره موبایل خود را وارد کنید 
+                    form(action="/newsletter") 
+                        input.text(type="text" name="phone" placeholder="0912XXXXXXX")
+                        input.submit(type="submit" value="مشترک شدن")
+            h1.copy-right کلیه حقوق مادی و معنوی متعلق به آکادمی فناورانه می‌باشد.
+        script.
+            document.getElementById('vid').play();
 
 

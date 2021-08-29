@@ -8,16 +8,20 @@
     src: url('btitr.ttf');
 }
 :root {
-    --light-background: #F8F8F8;
+    --light-background: #e4e4e4;
     --dark-background: #364152;
     --dark: #232A3A;
     --text: #4B4040;
     --hover: #FF8A47;
     --orange: #FF8A47;
+    --yellow: #EEAB34;
+    --green: #1ddd3d;
+    --red: #f1683f;
     --button: #3FAEE0;
     --blue: #3FAEE0;
-    --darkblue: #2781aa;
+    --darkblue: #050547;
     --gray: rgb(156, 156, 156);
+    --lightgray: rgb(201, 201, 201);
 }
 body{
     margin: 0;
@@ -60,8 +64,353 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
 .center {
     text-align: center;
 }
+.hidden-overflow{overflow: hidden;}
 @media only screen and (min-width: 800px) {
-    
+    header{
+        position: relative;
+        overflow: hidden;
+        height: 43vw;
+    }
+    header video{
+        position: absolute;
+        top: -5vw;
+        right: 0;
+        width: 100%;
+    }
+    header .overlay{
+        background-image: linear-gradient(90deg, rgba(24, 15, 199, 0.555), rgba(16, 16, 180, 0.116), rgb(16, 8, 173));
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+    }
+    header .info{
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        right: 0;
+        width: 90%;
+        z-index: 10;
+        padding: 0 5%;
+    }
+    header .info .contact{
+        float: right;
+        color: white;
+        padding: 0.5vw 1vw;
+        font-family: 'iransans';
+        font-size: 1vw;
+    }
+    header .info .contact a{
+        color: white;
+        text-decoration: none;
+        font-family: 'iransans';
+        font-size: 1vw;
+    }
+    header .info .contact a:hover{
+        color: var(--yellow);
+    }
+    header .info .contact i{
+        color: var(--yellow);
+        font-size: 2vw;
+        padding: 0 0.5vw;
+    }
+    header .info a.link{
+        float: left;
+        color: white;
+        text-decoration: none;
+        margin: 1vw 1vw;
+        padding: 0.2vw 1vw;
+        border: white 0.1vw solid;
+        border-radius: 0.5vw;
+        font-family: 'iransans';
+        font-size: 1vw;
+    }
+    header .info a.link:hover{
+        background-color: var(--yellow);
+        border: var(--yellow) 0.1vw solid;
+
+    }
+    header .info a.link i{
+        padding: 0 0.5vw;
+    }
+    header nav{
+        position: absolute;
+        top: 4vw;
+        right: 6%;
+        width: 82%;
+        background-color: white;
+        overflow: hidden;
+        z-index: 10;
+        border-radius: 0.5vw;
+        padding: 0 3%;
+    }
+    header nav a.logo{
+        display: block;
+        float: right;
+        padding: 0.3vw 2vw;
+        padding-left: 5vw;
+    }
+    header nav a.logo img{
+        width: 2.5vw;
+    }
+    header nav a.link{
+        float: right;
+        text-decoration: none;
+        font-family: 'iransans';
+        font-size: 1.1vw;
+        display: block;
+        color: var(--text);
+        padding: 0.5vw 1vw;
+        padding-top: 1.3vw;
+        padding-bottom: 0;
+        font-weight: bold;
+    }
+    header nav a.link:hover{color: var(--orange);}
+    header nav a.icon{
+        float: left;
+        text-decoration: none;
+        font-family: 'iransans';
+        font-size: 1.8vw;
+        display: block;
+        color: var(--gray);
+        padding-left: 0.7vw;
+        padding-top: 1vw;
+    }
+    header nav a.icon:hover{color: var(--hover);}
+    header .title-view {
+        position: absolute;
+        top: 20vw;
+        right: 6%;
+        z-index: 10;
+        color: white;
+    }
+    header .title-view h2{
+        font-size: 1vw;
+        font-weight: normal;
+        margin: 0;
+    }
+    header .title-view h1{
+        font-size: 3.5vw;
+        margin: 0;
+    }
+    header .title-view h1 .orange{
+        color: var(--yellow);
+        display: inline;
+    }
+    header .title-view h2.border{
+        border-right: var(--yellow) 0.3vw solid;
+        padding-right: 0.8vw;
+    }
+    header img.top-logo{
+        position: absolute;
+        top: 12vw;
+        left: 6%;
+        z-index: 10;
+        width: 22vw;
+    }
+    .square-links{
+        overflow: hidden;
+        width: 86%;
+        margin: auto;
+        margin-top: 3vw;
+    }
+    .square-links a{
+        display: block;
+        text-decoration: none;
+        background-color: white;
+        float: right;
+        width: 24%;
+        margin-right: 1%;
+        overflow: hidden;
+        transition-duration: 500ms;
+    }
+    .square-links a i{
+        font-size: 2vw;
+        padding: 1vw 1vw;
+    }
+    .square-links a .text{
+        float: left;
+        padding: 1.2vw;
+        color: var(--text);
+        font-size: 1vw;
+    }
+    .square-links a:hover .text{color: white;}
+    .square-links a.orange{border-top: var(--orange) 0.3vw solid;}
+    .square-links a.green{border-top: var(--green) 0.3vw solid;}
+    .square-links a.blue{border-top: var(--blue) 0.3vw solid;}
+    .square-links a.red{border-top: var(--red) 0.3vw solid;}
+    .square-links a.orange i{color: var(--orange);}
+    .square-links a.green i{color: var(--green);}
+    .square-links a.blue i{color: var(--blue);}
+    .square-links a.red i{color: var(--red);}
+    .square-links a.orange:hover {background-color: var(--orange);}
+    .square-links a.green:hover {background-color: var(--green);}
+    .square-links a.blue:hover {background-color: var(--blue);}
+    .square-links a.red:hover {background-color: var(--red);}
+    .square-links a:hover i{color: white;}
+    .click-links{
+        overflow: hidden;
+        width: 86%;
+        margin: 3vw auto;
+    }
+    .click-links a{
+        background-color: var(--darkblue);
+        float: right;
+        width: 49%;
+        margin-right: 1%;
+        overflow: hidden;
+    }
+    .click-links h2{
+        color: var(--orange);
+        float: right;
+        font-size: 0.9vw;
+        margin: 2vw 3.5vw;
+        font-weight: normal;
+    }
+    .click-links h2 i{
+        padding: 0 0.5vw;
+    }
+    .click-links h1{
+        float: right;
+        margin: 0;
+        font-size: 1.3vw;
+        color: white;
+        margin: 1.4vw 0;
+
+    }
+    .click-links h1 .orange{
+        color: var(--orange);
+        display: inline;
+    }
+    .cards-view {
+        overflow: hidden;
+        width: 86%;
+        margin: 3vw auto;
+    }
+    .cards-view a{
+        float: right;
+        width: 24%;
+        margin-right: 1%;
+        text-decoration: none;
+        color: var(--text);
+        background-color: white;
+        position: relative;
+    }
+    .cards-view img{
+        width: 100%;
+    }
+    .cards-view h1.title{
+        font-family: 'iransans';
+        margin: 0;
+        font-size: 1.2vw;
+        padding: 0 1vw;
+    }
+    .cards-view .stars{
+        padding: 0.5vw 1vw;
+        overflow: hidden;
+    }
+    .cards-view .stars i{
+        color: var(--yellow);
+        font-size: 1.5vw;
+    }
+    .cards-view .stars .star-text{
+        display: inline;
+        font-size: 0.9vw;
+    }
+    .cards-view .comments{
+        padding: 1vw;
+        color: var(--gray);
+        border-top: var(--light-background) 0.1vw solid;
+    }
+    .cards-view .comments i{
+        padding: 0 0.5vw;
+    }
+    .cards-view .price{
+        position: absolute;
+        bottom: 1vw;
+        left: 1vw;
+        color: var(--yellow);
+        font-weight: bold;
+        font-size: 1.1vw;
+    }
+    footer{
+        background-color: var(--darkblue);
+        overflow: hidden;
+        color: white;
+        padding-bottom: 5vw;
+        position: relative;
+    }
+    footer .hidden-overflow{
+        width: 90%;
+        margin: 3vw auto;
+    }
+    footer h1.title{
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        margin: 0;
+        margin-bottom: 1vw;
+    }
+    footer .contact{
+        float: right;
+        width: 30%;
+    }
+    footer .quick-links {
+        float: right;
+        width: 20%;
+    }
+    footer .news-letter {
+        float: right;
+        width: 30%;
+    }
+    footer .text{
+        color: var(--lightgray);
+        font-size: 1vw;
+    }
+    footer input.text{
+        background-color: transparent;
+        border: var(--gray) 0.1vw solid;
+        font-size: 1.1vw;
+        font-family: 'iransans';
+        padding: 0.5vw 2vw;
+        display: block;
+        width: 77%;
+        border-radius: 0.5vw;
+        margin: 0.5vw 0;
+    }
+    footer input.submit{
+        background-color: var(--yellow);
+        color: white;
+        border: none;
+        font-size: 1.1vw;
+        font-family: 'iransans';
+        padding: 0.5vw 2vw;
+        display: block;
+        width: 93%;
+        border-radius: 0.5vw;
+        margin: 1vw 0;
+        text-align: center;
+    }
+    footer a{
+        font-family: 'iransans';
+        font-size: 1vw;
+        text-decoration: none;
+        color: var(--lightgray);
+        display: block;
+        width: fit-content;
+        max-width: 80%;
+    }
+    footer a:hover{color: var(--yellow);}
+    footer h1.copy-right{
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        right: 0;
+        font-size: 1vw;
+        color: var(--lightgray);
+    }
 }
 @media only screen and (max-width: 800px) {
 
