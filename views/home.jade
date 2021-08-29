@@ -8,6 +8,7 @@ html
         script(src="/js/jquery-3.5.1.min.js")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         link(rel='stylesheet', href='/css/home.css')
+        link(rel='stylesheet', href='/css/components/footer.css')
     body
         header 
             video(id="vid" src="/img/home/gray_aban.mp4" autoplay muted loop)
@@ -141,39 +142,7 @@ html
                         i.fa.fa-comment
                         | 65
                     .price 3,000,000 تومان
-        footer 
-            .hidden-overflow
-                .contact 
-                    h1.title تماس بگیرید
-                    a(href="#") 
-                        i.fa.fa-map-marker
-                        | تهران، قیطریه، بلوار صبا، خیابان کریمی، خیابان واعظی، پلاک ۴۵، پژوهشسرای آسمان
-                    a(href="tel:09101741337")
-                        i.fa.fa-phone
-                        | 09101741337
-                    a(href="mailto:info@example.com") 
-                        i.fa.fa-envelope
-                        | info@example.com
-                .quick-links 
-                    h1.title پشتیبانی
-                    a(href="#") سوالات متداول
-                    a(href="#") ارسال تیکت
-                    a(href="#") قوانین و مقررات
-                    a(href="#") اطلاعات تماس
-                .quick-links 
-                    h1.title دسترسی سریع
-                    a(href="#") دوره های آزشی
-                    a(href="#") محصولات آموزشی
-                    a(href="#") آشنایی با ما
-                    a(href="#") مقالات
-                    a(href="#") اخبار
-                .news-letter 
-                    h1.title عضویت در خبرنامه
-                    .text برای دریافت پیشنهادات شگفت انگیز و تخفیف های ویژه شماره موبایل خود را وارد کنید 
-                    form(action="/newsletter") 
-                        input.text(type="text" name="phone" placeholder="0912XXXXXXX")
-                        input.submit(type="submit" value="مشترک شدن")
-            h1.copy-right کلیه حقوق مادی و معنوی متعلق به آکادمی فناورانه می‌باشد.
+        include ./components/footer
         script.
             document.getElementById('vid').play();
 
