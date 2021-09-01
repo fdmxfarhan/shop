@@ -64,6 +64,10 @@
         display: block;
         width: fit-content;
         max-width: 80%;
+        margin-bottom: 0.5vw;
+    }
+    footer a i{
+        padding-left: 0.5vw;
     }
     footer a:hover{color: var(--yellow);}
     footer h1.copy-right{
