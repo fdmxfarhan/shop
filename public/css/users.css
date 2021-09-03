@@ -13,9 +13,9 @@
     --dark: #232A3A;
     --text: #4B4040;
     --hover: #FF8A47;
-    --orange: #FF8A47;
+    --orange: #ffbd2e;
     --yellow: #EEAB34;
-    --green: #1ddd3d;
+    --green: #10b64f;
     --red: #f1683f;
     --button: #3FAEE0;
     --blue: #3FAEE0;
@@ -83,12 +83,100 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         width: 50%;
         background-color: var(--light-background);
     }
-    
+    .register h1{
+        font-family: 'iransans';
+        font-size: 3vw;
+        margin-top: 9vw;
+        color: black;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .register h2{
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        margin: 0;
+        color: var(--text);
+        text-align: center;
+        font-weight: normal;
+    }
+    .register form input.textinput{
+        display: block; 
+        border: none; 
+        width: 70%; 
+        margin: auto;
+        font-family: 'iransans';
+        font-size: 1vw;
+        padding: 1vw;
+        margin-top: 3vw;
+        box-shadow: 0 0 1vw 0.1vw rgba(0, 0, 0, 0.1);
+        border-radius: 0.1vw;
+        text-align: center;
+    }
+    .register form input.textinput:focus{
+        outline: none;
+    }
+    .register .check{
+        width: 74%;
+        margin: 1.6vw auto;
+    }
+    .register .check label{
+        font-family: 'iransans';
+        font-size: 1vw;
+        color: var(--text);
+    }
+    .register .check label a{
+        text-decoration: none;
+        color: var(--orange);
+        font-weight: bold;
+    }
+    .register form button.submit{
+        display: block; 
+        border: none; 
+        width: 74%; 
+        margin: auto;
+        font-family: 'iransans';
+        font-size: 1vw;
+        padding: 1vw;
+        box-shadow: 0 0 1vw 0.1vw rgba(0, 0, 0, 0.1);
+        color: white;
+        background-color: var(--orange);
+        border-radius: 0.4vw;
+        cursor: pointer;
+    }
+    .register form button.submit:hover{
+        background-color: var(--green);
+    }
+    .register a.link{
+        display: block; 
+        border: none; 
+        width: 71%; 
+        margin: auto;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        padding: 0.6vw;
+        text-decoration: none;
+        text-align: center;
+        color: var(--green);
+        position: relative;
+        border-radius: 0.4vw;
+        border: var(--green) 0.1vw solid;
+        margin-top: 2vw;
+    }
+    .register a.link i{
+        position: absolute;
+        top: 0.9vw;
+        left: 1vw;
+    }
+    .register a.link:hover{
+        background-color: var(--green);
+        color: white;
+    }
 }
 
 @media only screen and (max-width: 800px) {
     
 }
+
 
 
 

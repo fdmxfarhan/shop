@@ -16,16 +16,14 @@ html
             .image
                 img(src="/img/users/bg-2.jpg", alt="")
             .register
-                h1 ورود
-                h2 برای ورود شماره موبایل خود را وارد نمایید
-                form(action="/users/login" id="register" method="POST")
-                    input.textinput(type="text" placeholder="شماره موبایل خود را وارد کنید" name="phone" value= "#{ typeof phone != 'undefined' ? phone: '' }" required)
-                    .check
-                        input(type="checkbox" name="rules" id="rules" required)
-                        label(for="rules") 
-                            a(href="#") شرایط و قوانین 
-                            | را خوانده ام و می‌پذیرم.
-                    button.submit(type="submit" ) ارسال رمز یک بار مصرف
+                h1 تایید شماره موبایل
+                h2 کد پیامک شده را وارد کنید
+                form(action="/users/enter-code" id="register" method="POST")
+                    input.hidden(type="text" name="phone" value="#{phone}")
+                    input.hidden(type="text" name="code" value="#{code}")
+                    input.textinput(type="text" placeholder="* * * *" name="enterCode" required)
+                    br
+                    button.submit(type="submit" ) تایید شماره موبایل
                     a.link(href="/users/register") 
                         i.fa.fa-user-plus
                         | ثبت نام
