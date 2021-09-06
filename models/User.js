@@ -18,10 +18,14 @@ var UserSchema = new mongoose.Schema({
   sex: String,
   file: {
     type: [Object],
-    default: []
+    default: [],
   },
   avatar: Number,
   course: [Object],
+  completed: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 var User = mongoose.model('User', UserSchema);

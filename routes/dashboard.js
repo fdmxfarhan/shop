@@ -22,6 +22,14 @@ router.get('/', ensureAuthenticated, (req, res, next) => {
     }
 });
 
+router.post('/complete-info', ensureAuthenticated, (req, res, next) => {
+    var {firstName, lastName, idNumber, email, address} = req.body;
+    var fullname = firstName + ' ' + lastName;
+    User.updateMany({_id: req.user._id}, {$set: {firstName, lastName, idNumber, email, address, fullname, completed: true}}, (err) => {
+        res.redirect('/dashboard')
+    });
+});
+
 module.exports = router;
 
 

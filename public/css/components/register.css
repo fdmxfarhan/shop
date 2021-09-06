@@ -1,0 +1,67 @@
+@media only screen and (min-width: 800px) {
+    .complete-info{
+        width: 90%;
+        margin: auto;
+        box-shadow: 0 0 0.5vw 0.2vw rgba(0, 0, 0, 0.1);
+        border-radius: 2vw;
+        background-color: white;
+        padding-bottom: 2vw;
+    }
+    .complete-info h1.title{
+        border: none;
+        margin: 0;
+        padding: 0;
+        margin-top: 3vw;
+        padding: 0 3vw;
+        padding-top: 2vw;
+    }
+    .complete-info form{
+        margin-top: 1vw;
+        /* overflow: hidden; */
+    }
+    .complete-info form .part{
+        float: right;
+        width: 50%;
+    }
+    .complete-info form .part .text-input{
+        width: 80%;
+        margin: auto;
+        border-radius: 2vw;
+        margin: 2vw auto;
+        box-shadow: 0 0 0.5vw 0.2vw rgba(0, 0, 0, 0.2);
+        padding: 0;
+    }
+    .complete-info form .part .text-input i{
+        font-size: 1.3vw;
+        color: var(--blue);
+        width: 4vw;
+        text-align: center;
+        padding: 0.6vw 0;
+    }
+    .complete-info form .part .text-input input{
+        font-size: 1vw;
+        padding: 0.6vw;
+        width: 75%;
+        border: none;
+        font-family: 'iransans';
+    }
+    .complete-info form .part .text-input input:focus{outline: none;}
+    .complete-info form input.submit{
+        background-color: var(--blue);
+        color: white;
+        font-family: 'iransans';
+        font-size: 1vw;
+        padding: 0.6vw 4vw;
+        border: none;
+        border-radius: 2vw;
+        margin-right: 5%;
+        cursor: pointer;
+        display: block;
+    }
+    .complete-info form input.submit:hover{
+        background-color: var(--hover);
+    }
+
+
+}
+@media only screen and (max-width: 800px) {}

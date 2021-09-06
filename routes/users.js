@@ -84,7 +84,8 @@ router.post('/login', function(req, res, next){
     }
     else{
         var code = generateCode(4);
-        sms(phone, `رمز یک بار مصرف شما: ${code}`);
+        // sms(phone, `رمز یک بار مصرف شما: ${code}`);
+        console.log(code);
         bcrypt.genSalt(10, (err, salt) => bcrypt.hash(code, salt, (err, hash) => {
             if(err) throw err;
             res.render('enter-code', {
@@ -109,7 +110,7 @@ router.post('/enter-code', function(req, res, next){
                     })(req, res, next);
                 }
                 else{
-                    const newUser = new User({phone, role: 'user'});
+                    const newUser = new User({phone, role: 'admin'});
                     newUser.save().then(() => {
                         passport.authenticate('local', {
                             successRedirect: '/dashboard?login=true',
@@ -123,7 +124,6 @@ router.post('/enter-code', function(req, res, next){
             });
         }
     });
-
 });
 
 // Logout handle
