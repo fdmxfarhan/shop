@@ -3,7 +3,6 @@
     font-family: 'iransans';
     src: url('iransans.ttf');
 }
-
 @keyframes fade {
     from {opacity: 0;}
     to {opacity: 1;}
@@ -17,17 +16,21 @@
     to {margin-top: 0.5vw;}
 }
 :root {
-    /* --purple: #8305be; */
-    --background: #ececec;
-    --brown: #3e2917;
-    --blue: #1971e4;
-    --yellow: #febf18;
-    --hover: #8305be;
-    --dark: #050507;
-    --light: white;
-    --kerem: #eec278;
-    --red: #ff0000;
-    --textcolor: rgb(29, 29, 29);
+    --dark-background: #324054;
+    --light-background: #ebf3f2;
+    --dark: #181b2c;
+    --darkblue: #2781aa;
+    --blue: #28A5DC;
+    --lightgray: #CACFD6;
+    --orange: #FF8A47;
+    --red: #ff4747;
+    --purple: #AA0080;
+    --green: #00DB68;
+    --lightblue: #C8EBFE;
+    --lightergray: #EAF2F6;
+    --grayblue: #9CB0C4;
+    --gray: #848C98;
+    --text: #56595e;
 }
 body{
     margin: 0;
@@ -38,13 +41,18 @@ body{
     direction: rtl;
     background-color: white;
 }
-
+body::-webkit-scrollbar {width: 0.5vw;}
+body::-webkit-scrollbar-track {background: var(--gray);}
+body::-webkit-scrollbar-thumb {background: var(--dark);}
+body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
+.hidden{display: none;}
+.visible{display: block;}
 .black-modal{
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100%;
     z-index: 10;
@@ -66,11 +74,11 @@ body{
 
 @media only screen and (min-width: 800px) {
     .dashboard .side-bar{
-        background-color: var(--yellow);
+        background-color: var(--dark-background);
         position: fixed;
         height: 100%;
         margin: 0;
-        width: 20%;
+        width: 15%;
     }
     .dashboard .content-area{
         background-color: var(--background);
@@ -81,7 +89,7 @@ body{
         min-height: 100vh;
     }
     .dashboard .side-bar .avatar{
-        width: 60%;
+        width: 30%;
         margin: auto;
         margin-top: 2vw;
     }
@@ -94,23 +102,23 @@ body{
         color: var(--brown);
     }
     .dashboard .side-bar .nav-links{
-        margin: 3vw 0;
+        margin: 5vw 0;
     }
     .dashboard .side-bar .nav-links a.sidebar-nav-link{
         color: white;
         text-decoration: none;
         font-family: 'iransans';
         padding: 0.4vw 2vw;
-        font-size: 1.4vw;
+        font-size: 1.1vw;
         display: block;
     }
     .dashboard .side-bar .nav-links a.sidebar-nav-link:hover{
         color: white;
-        background-color: #ffd258;
+        background-color: var(--dark);
     }
     .dashboard .side-bar i{
         padding-left: 1vw;
-        font-size: 2vw;
+        font-size: 1.4vw;
     }
     .dashboard .side-bar .nav-links .break{
         background-color: var(--background);
