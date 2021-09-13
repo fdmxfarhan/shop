@@ -1,0 +1,125 @@
+extends ../layout
+
+block styles
+    link(rel="stylesheet", href="/css/course.css")
+
+block content
+    h1.course-title= course.title
+    .course-view
+        .content-view
+            .statistics 
+                i.fa.fa-headphones 
+                .info 
+                    h1 پشتیبانی
+                    -if(course.support)
+                        h2 دارد
+                    -else
+                        h2 ندارد
+                i.fa.fa-check
+                .info 
+                    h1 سطح
+                    h2= course.stage
+                i.fa.fa-calendar
+                .info 
+                    h1 آخرین بروزرسانی
+                    h2= dateConvert.get_year_month_day(course.lastUpdate)
+                i.fa.fa-eye
+                .info 
+                    h1 بازدید
+                    h2= course.seen
+            .cover 
+                img(src="#{course.cover}")
+            .tab-links 
+                .link#tab1-btn.active  
+                    i.fa.fa-info
+                    h1 توضیحات
+                .link#tab2-btn  
+                    i.fa.fa-video-camera
+                    h1 ویدیوهای دوره
+                .link#tab3-btn.last  
+                    i.fa.fa-comment
+                    h1 دیدگاه‌ها
+            
+            .tab-content#tab1 
+                h1.course-title= course.title
+                .description= course.description
+            
+            .tab-content#tab2.hidden 
+                .sessions-area
+                    -for(var i=0; i<course.sessions.length; i++){
+                        .session 
+                            h1 #{i+1}: #{course.sessions[i].title}
+                            a.link(href="#") 
+                                i.fa.fa-play 
+                                | ویدیو
+                            .item
+                                i.fa.fa-clock-o 
+                                | #{course.sessions[i].time}
+                            .item
+                                -if(course.sessions[i].locked){
+                                    i.fa.fa-lock
+                                    .red قفل
+                                -}else{
+                                    i.fa.fa-unlock
+                                    .green باز
+                                -}
+                    -}
+                    -if(user && user.role == 'admin'){
+                        .add-session#add-session-button
+                            i.fa.fa-plus 
+                            | افزودن جلسه
+                    -}
+
+
+            .tab-content#tab3.hidden 
+                h1.course-title 10 دیدگاه
+                .comments-view 
+                    -for(var i=0; i<10; i++){
+                        .comment 
+                            i.fa.fa-user.avatar
+                            .info 
+                                h1 نام و نام خانوادگی
+                                h2 1380/1/6
+                                p این یک کامنت آزمایشی و فقط جهت تست است. این یک کامنت آزمایشی و فقط جهت تست است. این یک کامنت آزمایشی و فقط جهت تست است. این یک کامنت آزمایشی و فقط جهت تست است. 
+                    -}
+            
+        .side-bar 
+            .price 
+                h1 #{dateConvert.showPrice(Math.floor(course.price/10))} تومان
+            a.buy(href="#") خرید دوره
+                i.fa.fa-shopping-basket
+            .info 
+                .item
+                    h1 
+                        i.fa.fa-clock-o 
+                        | زمان آموزش
+                    h2= course.time 
+                .item
+                    h1 
+                        i.fa.fa-graduation-cap
+                        | مدرس
+                    h2= course.producer
+                .item
+                    h1 
+                        i.fa.fa-check
+                        | سطح
+                    h2= course.stage
+                .item
+                    h1 
+                        i.fa.fa-pencil
+                        | زیرنویس
+                    -if(course.subtitle)
+                        h2 دارد
+                    -else
+                        h2 دارد
+                .item
+                    h1 
+                        i.fa.fa-headphones
+                        | پشتیبانی
+                    -if(course.support)
+                        h2 دارد
+                    -else
+                        h2 دارد
+    -if(user && user.role == 'admin')            
+        include ../components/add-session
+    script(src="/js/course.js") 

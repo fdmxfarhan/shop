@@ -107,8 +107,8 @@
         font-family: 'iransans';
         font-size: 1.8vw;
         display: block;
-        color: var(--gray);
-        padding-left: 0.7vw;
+        color: var(--text);
+        padding-left: 1vw;
         padding-top: 1vw;
     }
     header nav a.icon:hover{color: var(--hover);}

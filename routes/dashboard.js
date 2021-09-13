@@ -3,6 +3,7 @@ var router = express.Router();
 
 const { ensureAuthenticated } = require('../config/auth');
 var User = require('../models/User');
+var Course = require('../models/Course');
 const mail = require('../config/mail');
 
 router.get('/', ensureAuthenticated, (req, res, next) => {
@@ -15,10 +16,13 @@ router.get('/', ensureAuthenticated, (req, res, next) => {
     }
     else if(req.user.role = 'admin')
     {
-        res.render('./dashboard/admin-dashboard', {
-            user: req.user,
-            login: req.query.login,
-        });
+        Course.find({}, (err, courses) => {
+            res.render('./dashboard/admin-dashboard', {
+                user: req.user,
+                login: req.query.login,
+                courses
+            });
+        })
     }
 });
 
@@ -30,8 +34,10 @@ router.post('/complete-info', ensureAuthenticated, (req, res, next) => {
     });
 });
 
+
+
+
+
 module.exports = router;
-
-
 
 

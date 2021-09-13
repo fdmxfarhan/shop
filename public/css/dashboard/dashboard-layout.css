@@ -11,7 +11,7 @@
     --light-background: #e4e4e4;
     --dark-background: #364152;
     --dark: #232A3A;
-    --text: #4B4040;
+    --text: #555252;
     --hover: #FF8A47;
     --orange: #EEAB34;
     --yellow: #EEAB34;
@@ -23,6 +23,7 @@
     --darkblue: #050547;
     --gray: rgb(156, 156, 156);
     --lightgray: rgb(201, 201, 201);
+    --lightergray: rgb(240, 240, 240);
     --active: #BE892A;
 }
 body{

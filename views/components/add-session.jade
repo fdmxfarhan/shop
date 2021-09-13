@@ -1,0 +1,19 @@
+.popup#add-session-popup
+    i.fa.fa-times.close-popup
+    h1.popup-title افزودن کاربر جدید
+    form(action="/upload/session" enctype="multipart/form-data" method="POST") 
+        input.hidden(type="text" name="courseID" value="#{course._id}")
+        .middle-col
+            .text-input 
+                i.fa.fa-pencil
+                input(type="text" name="title" placeholder="عنوان جلسه")
+            .text-input 
+                i.fa.fa-clock-o
+                input(type="text" name="time" placeholder="مدت زمان (00:00:00)")
+            .check-input 
+                input(type="checkbox" name="locked" id="locked" value="true")
+                label(for="locked") قفل
+            .upload-area فایل خود را انتخاب کنید
+                i.fa.fa-cloud-upload
+                input.file(type="file" name="myFile")
+            input.submit(type="submit" value="آپلود")

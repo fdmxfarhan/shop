@@ -5,18 +5,33 @@ var CourseSchema = new mongoose.Schema({
   producer: String,
   time: String,
   stage: String,  // mobtadi, pishrafte ina
-  subtitle: Boolean,
-  support: Boolean,
+  subtitle: {
+    type: Boolean,
+    default: false,
+  },
+  support: {
+    type: Boolean,
+    default: false,
+  },
   supportNumber: String,
   lastUpdate: Date,
-  seen: Number,
-  description: Text,
+  seen: {
+    type: Number,
+    default: 0,
+  },
+  description: String,
   intro: Object,  // {type, src}
-  sessions: [Object],
+  sessions: {
+    type: [Object],
+    default: [],
+  },
   price: Number,
   cover: String,
   status: String, // {title, locked, time, video, description}
-  
+  star: {
+    type: Number,
+    default: 0,
+  },
 });
 
 var Course = mongoose.model('Course', CourseSchema);

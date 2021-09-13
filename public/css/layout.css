@@ -11,7 +11,7 @@
     --light-background: #e4e4e4;
     --dark-background: #364152;
     --dark: #232A3A;
-    --text: #4B4040;
+    --text: #555252;
     --hover: #FF8A47;
     --orange: #EEAB34;
     --yellow: #EEAB34;
@@ -22,6 +22,7 @@
     --darkblue: #050547;
     --gray: rgb(156, 156, 156);
     --lightgray: rgb(201, 201, 201);
+    --lightergray: rgb(240, 240, 240);
     --active: #BE892A;
 }
 body{
@@ -67,7 +68,112 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
 }
 .hidden-overflow{overflow: hidden;}
 @media only screen and (min-width: 800px) {
-    
+    .popup{
+        display: none;
+        position: fixed;
+        background-color: white;
+        top: 7vw;
+        right: 18%;
+        width: 60%;
+        padding: 2vw 2%;
+        z-index: 1000;
+        border-radius: 1vw;
+    }
+    .popup i.close-popup{
+        position: absolute;
+        top: 1vw;
+        left: 1.5vw;
+        color: var(--gray);
+        cursor: pointer;
+    }
+    .popup i.close-popup:hover{
+        color: var(--red);
+    }
+    .popup h1.popup-title{
+        color: var(--blue);
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        margin-bottom: 1vw;
+    }
+    .upload-area i{padding: 0 0.5vw;}
+    .upload-area {
+        border: lightblue 2px dashed;
+        position: relative;
+        cursor: pointer;
+        padding: 2vw 0;
+        text-align: center;
+        color: #798AAF;
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        width: 98%;
+        border-radius: 1vw;
+        margin-bottom: 1vw;
+    }
+    .upload-area:hover {
+        color: white;
+        border: lightblue 2px solid;
+        background-color: lightblue;
+    }
+    input.file {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+    .popup .middle-col {
+        width: 60%;
+        margin: auto;
+    }
+    .popup .middle-col .text-input{
+        width: 100%;
+        padding: 0.7vw 1vw;
+        direction: rtl;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        /* margin-bottom: 2vw; */
+    }
+    .popup .middle-col .text-input input{
+        display: block;
+        width: 70%;
+        box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.2);
+        border-radius: 2vw;
+        border: white 0.1vw solid;
+        font-family: 'iransans';
+        font-size: 1vw;
+        padding: 0.3vw 4vw;
+    }   
+    .popup .middle-col .text-input input:focus{
+        border: var(--blue) 0.1vw solid;
+        outline: none;
+    }
+    .popup .middle-col .text-input i{
+        position: absolute;
+        color: var(--blue);
+        font-size: 1.3vw;
+        top: 1.2vw;
+        right: 2vw;
+    }
+    input.submit{
+        background-color: var(--blue);
+        color: white;
+        display: block;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        border-radius: 2vw;
+        border: none;
+        padding: 0.3vw 2vw;
+        cursor: pointer;
+    }
+    input.submit:hover{
+        background-color: var(--hover);
+    }
 }
 
 @media only screen and (max-width: 800px) {

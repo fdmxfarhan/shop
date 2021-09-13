@@ -31,18 +31,20 @@ block content
     h1.section-title دوره ها
         i.fa.fa-plus#add-course-btn
     .product-cards-area 
-        a.card(href="#") 
-            .image 
-                img(src="/img/home/cover1.jpg")
-            .title دوره آموزشی 1
-            .stars 
-                i.fa.fa-star.star
-                i.fa.fa-star.star
-                i.fa.fa-star.star
-                i.fa.fa-star.star
-                i.fa.fa-star.star
-                .star-text (5 امتیاز)
-            .price 100.000 تومان
+        -for(var i=0; i<courses.length; i++){
+            a.card(href="/course/course-view?courseID=#{courses[i]._id}") 
+                .image 
+                    img(src="#{courses[i].cover}")
+                .title= courses[i].title
+                .stars 
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    .star-text (#{courses[i].star} امتیاز)
+                .price #{courses[i].price} تومان
+        -}
         
         
 
