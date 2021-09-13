@@ -1,16 +1,42 @@
-.popup-area.visible
-    .popup
-        i.fa.fa-times.close-popup
-        h1.popup-title افزودن دوره جدید
-        .two-side-cont
-            .part 
-                form(action="/dashboard/") 
-                    .text-input 
-                        i.fa.fa-pencil 
-                        input(type="text" name="title" placeholder="عنوان دوره")
-                    .text-input 
-                        i.fa.fa-pencil 
-                        input(type="text" name="title" placeholder="عنوان دوره")
-                    
+link(rel="stylesheet", href="/css/components/add-course.css")
+.popup#add-course-popup
+    i.fa.fa-times.close-popup
+    h1.popup-title افزودن دوره جدید
+    form(action="/dashboard/add-course" enctype="multipart/form-data" method="POST") 
+        .two-column
+            .column
+                .text-input 
+                    i.fa.fa-pencil 
+                    input(type="text" name="title" placeholder="عنوان دوره")
+                .text-input 
+                    i.fa.fa-user 
+                    input(type="text" name="producer" placeholder="مدرس")
+                .text-input 
+                    i.fa.fa-clock-o
+                    input(type="text" name="time" placeholder="زمان دوره (ساعت)")
+                .text-input 
+                    i.fa.fa-database
+                    input(type="text" name="stage" placeholder="سطح دوره")
+                .text-input 
+                    i.fa.fa-phone 
+                    input(type="text" name="supportNumber" placeholder="تلفن پشتیبانی")
+                .check-input 
+                    input(type="checkbox" name="subtitle" id="subtitle" value="true")
+                    label(for="subtitle") زیرنویس
+                .check-input 
+                    input(type="checkbox" name="support" id="support" value="true")
+                    label(for="support") پشتیبانی
+                
             .break-side 
-            .part 
+            .column
+                .text-input 
+                    i.fa.fa-dollar
+                    input(type="number" name="price" placeholder="هزینه (ریال)")
+                textarea(name="description" placeholder="توضیحات")
+                .upload-area انتخاب عکس کاور
+                    i.fa.fa-cloud-upload
+                    input.file(type="file" name="myFile")
+            button.submit(type="submit")
+                i.fa.fa-save 
+                | ثبت 
+script(src="/js/add-course.js") 

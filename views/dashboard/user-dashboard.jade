@@ -2,24 +2,7 @@ extends layout
 
 block styles
     link(rel="stylesheet", href="/css/dashboard/dashboard.css")
-    link(rel="stylesheet", href="/css/components/register.css")
 
 block content
-    .message-area
-        -if(login){
-            .success-msg
-                i.fa.fa-times.close-success-msg
-                ul 
-                    li به پنل کاربری خود خوش آمدید
-        -}
-        -if(false){
-            .notif-msg
-                i.fa.fa-times.close-notif-msg
-                ul 
-                    li شما n صورت حساب پرداخت نشده دارید. جهت پرداخت صورت حساب خود 
-                        a(href="#") اینجا 
-                        | را کلیک کنید.
-        -}
-    -if(!user.completed)
-        include ../components/complete-info
+    
     script(src="/js/dashboard.js") 

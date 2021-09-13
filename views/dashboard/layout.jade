@@ -10,39 +10,42 @@ html
         //- meta(name="theme-color" content="#050507")
         //- script(src="/js/index.js")
         link(rel="stylesheet", href="/css/dashboard/dashboard-layout.css")
+        link(rel="stylesheet", href="/css/components/footer.css")
+        link(rel="stylesheet", href="/css/components/navbar.css")
+        link(rel="stylesheet", href="/css/components/register.css")
         block styles
     body
         .black-modal
+        include ../components/navbar
         .dashboard
             .side-bar 
-                .avatar
-                    img(src="/img/avatar/1.png", alt="avatar")
-                .name= user.fullname
-                .nav-links 
-                    a.sidebar-nav-link(href="/dashboard") 
-                        i.fa.fa-user 
+                .valet
+                    i.fa.fa-credit-card 
+                    .info   
+                        h1 موجودی کیف پول
+                        h2 #{user.card} تومان
+                .links
+                    a.active(href="#") 
+                        i.fa.fa-user
                         | داشبورد
-                    .break 
-                    a.sidebar-nav-link(href="#") 
+                    a(href="#") 
                         i.fa.fa-book
-                        | دوره های من
-                    .break 
-                    a.sidebar-nav-link(href="#") 
-                        i.fa.fa-credit-card
-                        | صورت حساب ها
-                    .break 
-                    a.sidebar-nav-link(href="#") 
-                        i.fa.fa-bell
-                        | اعلان ها
-                    .break 
-                    a.sidebar-nav-link(href="#") 
-                        i.fa.fa-gears
+                        | دوره‌های من
+                    a(href="#") 
+                        i.fa.fa-shopping-cart
+                        | سفارشات
+                    a(href="#") 
+                        i.fa.fa-dollar
+                        | فاکتورها
+                    a(href="#") 
+                        i.fa.fa-gear
                         | تنظیمات
-                
-                a.logout(href="/users/logout") 
-                    i.fa.fa-power-off
-                    | خروج
-
+                    
             .content-area
-                block content
+                -if(!user.completed)
+                    include ../components/complete-info
+                -else
+                    include ../components/user-info
+            block content
+        include ../components/footer
         script(src="/js/numberFixer.js") 

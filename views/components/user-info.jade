@@ -1,0 +1,34 @@
+.user-info 
+    h1.wellcome #{user.fullname} عزیز، خوش آمدید.
+    h1.title
+        i.fa.fa-check
+        | اطلاعات کاربری شما به شرح زیر است.
+    .two-column 
+        .column 
+            .item 
+                i.fa.fa-envelope 
+                | #{user.email}
+            .item 
+                i.fa.fa-phone 
+                | #{user.phone}
+            .item 
+                i.fa.fa-user 
+                | #{user.idNumber}
+        .column 
+            .item 
+                .title نام: 
+                | #{user.firstName}
+            .item 
+                .title نام خانوادگی: 
+                | #{user.lastName}
+            .item 
+                i.fa.fa-map-marker 
+                | #{user.address}
+    .links 
+        a.green(href="#") 
+            i.fa.fa-edit
+            | ویرایش اطلاعات کاربری
+        a.red(href="/users/logout") 
+            i.fa.fa-sign-out
+            | خروج 
+        

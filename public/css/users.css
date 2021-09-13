@@ -66,6 +66,24 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
 }
 .hidden-overflow{overflow: hidden;}
 @media only screen and (min-width: 800px) {
+    a.back-home{
+        position: absolute;
+        top: 1vw;
+        left: 1vw;
+        /* background-color: var(--orange); */
+        /* color: white; */
+        font-family: 'iransans';
+        font-size: 1.1vw;
+        font-weight: bold;
+        text-decoration: none;
+        color: var(--orange);
+        padding: 0.5vw 1vw;
+    }
+    a.back-home i{
+        padding: 0 0.5vw;
+        font-size: 2vw;
+    }
+    a.back-home:hover{color: var(--green);}
     .reg-area{
         direction: rtl;
         overflow: hidden;

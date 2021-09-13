@@ -1,32 +1,33 @@
 @media only screen and (min-width: 800px) {
     .graph-cards-area{
         overflow: hidden;
-        margin: 2vw 0;
-        padding: 0 4vw;
+        width: 90%;
+        margin: 1vw auto;
     }
     .graph-cards-area .card{
         float: right;
         margin: 1vw;
-        background-color: var(--background);
+        background-color: var(--lightgreen);
         border-radius: 0.5vw;
-        box-shadow:  0.3vw  0.3vw 0.6vw #bebebe,
+        box-shadow:  0.3vw  0.3vw 0.6vw #0000003f,
                     -0.3vw -0.3vw 0.6vw #ffffff;
         padding: 1vw 2vw;
-        width: 17vw;
+        width: 20vw;
         direction: ltr;
         position: relative;
     }
     .graph-cards-area .card .title{
-        color: var(--brown);
+        color: var(--darkblue);
         display: inline;
         position: absolute;
         right: 2vw;
         top: 1vw;
         font-family: 'iransans';
         font-size: 1.2vw;
+        font-weight: bold;
     }
-    h1.title {
-        width: 85%;
+    h1.section-title {
+        width: 90%;
         margin: auto;
         font-family: 'iransans';
         font-size: 1.5vw;
@@ -34,8 +35,20 @@
         border-bottom: lightgray 0.1vw solid;
         padding: 0.3vw 0;
     }
+    h1.section-title i{
+        margin-right: 1vw;
+        font-size: 1vw;
+        border-radius: 50%;
+        padding: 0.45vw 0.45vw 0.3vw 0.42vw;
+        background-color: var(--blue);
+        cursor: pointer;
+        color: white;
+    }
+    h1.section-title i:hover{
+        background-color: var(--orange);
+    }
     .product-cards-area{
-        width: 85%;
+        width: 90%;
         margin: auto;
         padding: 2vw 0;
         overflow: hidden;
@@ -54,25 +67,26 @@
         color: chocolate;
     }
     .product-cards-area .card{
+        text-decoration: none;
         float: right;
-        width: 30%;
+        width: 32%;
         margin: 1vw;
         background-color: var(--background);
         box-shadow:  0.3vw  0.3vw 0.6vw #bebebe,
                     -0.3vw -0.3vw 0.6vw #ffffff;
-        border-radius: 1vw;
-        min-height: 26vw;
+        border-radius: 0.2vw;
+        min-height: 25vw;
         position: relative;
     }
     .product-cards-area .card .image img{
         width: 100%;
-        height: 12vw;
-        border-top-left-radius: 1vw;
-        border-top-right-radius: 1vw;
+        /* height: 12vw; */
+        border-top-left-radius: 0.2vw;
+        border-top-right-radius: 0.2vw;
     }
 
     .product-cards-area .card .title{
-        color: var(--brown);
+        color: var(--text);
         font-weight: bold;
         width: 90%;
         margin: auto;
@@ -92,7 +106,7 @@
         left: 2vw;
         font-size: 1.2vw;
         font-weight: bold;
-        color: rgb(0, 190, 0);
+        color: var(--orange);
     }
     .product-cards-area .card.add{
         background-color: rgb(255, 192, 185);
@@ -113,6 +127,20 @@
         color: white;
         font-size: 2vw;
         margin: 0;
+    }
+    
+    .product-cards-area .card .stars{
+        padding: 0.5vw 1vw;
+        overflow: hidden;
+    }
+    .product-cards-area .card .stars i{
+        color: var(--yellow);
+        font-size: 1.5vw;
+    }
+    .product-cards-area .card .stars .star-text{
+        display: inline;
+        font-size: 0.9vw;
+        margin-right: 0.5vw;
     }
 }
 @media only screen and (max-width: 800px) {

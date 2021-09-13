@@ -20,14 +20,19 @@ html
                 .contact 
                     i.fa.fa-envelope 
                     | info@example.com
-                a.link(href="/users/login") ثبت نام
-                    i.fa.fa-user
-                a.link(href="/users/login") ورود
-                    i.fa.fa-sign-in
+                -if(user){
+                    a.link(href="/users/login") پنل کاربری
+                        i.fa.fa-user
+                -}else{
+                    a.link(href="/users/login") ثبت نام
+                        i.fa.fa-user
+                    a.link(href="/users/login") ورود
+                        i.fa.fa-sign-in
+                -}
             nav 
                 a.logo(href="/") 
                     img(src="/img/logo.png")
-                a.link(href="#") خانه
+                a.link(href="/") خانه
                 a.link(href="#") دوره های آموزشی
                 a.link(href="#") فروشگاه
                 a.link(href="#") خدمات

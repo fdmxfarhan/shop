@@ -1,0 +1,71 @@
+@media only screen and (min-width: 800px) {
+    .two-column{
+        overflow: hidden;
+    }
+    .two-column .column{
+        width: 50%;
+        float: right;
+    }
+    .two-column .column .check-input{
+        padding-right: 1vw;
+    }
+    .two-column .column .text-input{
+        width: 90%;
+        border-radius: 2vw;
+        margin: 1vw 0.5vw;
+        box-shadow: 0 0 0.5vw 0.2vw rgba(0, 0, 0, 0.2);
+        padding: 0;
+    }
+    .two-column .column textarea{
+        border: none;
+        resize: vertical;
+        min-height: 10vw;
+        width: 82%;
+        border-radius: 1vw;
+        margin: 1vw 0.5vw;
+        box-shadow: 0 0 0.5vw 0.2vw rgba(0, 0, 0, 0.2);
+        padding: 0;
+        padding: 0.7vw 1vw;
+        font-family: 'iransans';
+        font-size: 1vw;
+        border: transparent 0.1vw solid;
+    }
+    .two-column .column textarea:focus{
+        outline: none;
+        border: var(--blue) 0.1vw solid;
+    }
+    .two-column .column .text-input i{
+        font-size: 1.3vw;
+        color: var(--blue);
+        width: 3vw;
+        text-align: center;
+        padding: 0.7vw 0;
+    }
+    .two-column .column .text-input input{
+        font-size: 1vw;
+        padding: 0.6vw;
+        width: 70%;
+        border: none;
+        font-family: 'iransans';
+    }
+    .two-column .column .text-input input:focus{outline: none;}
+    .two-column .column .upload-area{
+        width: 90%;
+    }
+    .two-column button.submit i{padding-left: 0.5vw;}
+    .two-column button.submit{
+        background-color: var(--blue);
+        color: white;
+        font-family: 'iransans';
+        font-size: 1vw;
+        padding: 0.6vw 4vw;
+        border: none;
+        border-radius: 2vw;
+        /* margin-right: 5%; */
+        cursor: pointer;
+        /* display: block; */
+    }
+    .two-column button.submit:hover{
+        background-color: var(--hover);
+    }
+}
