@@ -110,7 +110,7 @@ router.post('/enter-code', function(req, res, next){
                     })(req, res, next);
                 }
                 else{
-                    const newUser = new User({phone, role: 'admin'});
+                    const newUser = new User({phone, role: 'user'});
                     newUser.save().then(() => {
                         passport.authenticate('local', {
                             successRedirect: '/dashboard?login=true',
