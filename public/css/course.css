@@ -68,6 +68,10 @@
         width: 100%;
         display: block;
     }
+    .course-view .content-view .cover video{
+        width: 100%;
+        display: block;
+    }
     .course-view .side-bar .price{
         background-color: white;
         border-radius: 0.5vw;
@@ -204,6 +208,9 @@
         overflow: hidden;
         padding: 1vw 2vw;
     }
+    .course-view .content-view .tab-content .sessions-area .session.active{
+        background-color: rgb(187, 218, 228);
+    }
     .course-view .content-view .tab-content .sessions-area .session h1{
         margin: 0;
         padding: 0;
@@ -219,6 +226,9 @@
         color: var(--text);
         font-family: 'iransans';
         font-size: 1vw;
+    }
+    .course-view .content-view .tab-content .sessions-area .session a.link.delete{
+        margin-right: 1vw;
     }
     .course-view .content-view .tab-content .sessions-area .session a.link i{
         padding: 0 0.5vw;
@@ -259,6 +269,7 @@
         margin-bottom: 1vw;
         overflow: hidden;
         padding-bottom: 1vw;
+        position: relative;
     }
     .course-view .content-view .tab-content .comments-view .comment i.avatar{
         float: right;
@@ -307,7 +318,64 @@
     .course-view .content-view .tab-content .add-session i{
         padding: 0 0.5vw;
     }
-
-
+    .course-view .content-view .tab-content .sessions-area .session a.link.delete:hover i{
+        color: red;
+    }
+    .course-view .content-view .tab-content .comments-view h1.login-first{
+        color: var(--gray);
+        font-family: 'iransans';
+        font-size: 1.5vw;
+    }
+    .course-view .content-view .tab-content .comments-view h1.login-first a{
+        color: var(--blue);
+        font-family: 'iransans';
+        text-decoration: none;
+    }
+    .course-view .content-view .tab-content .comments-view h1.login-first a:hover{
+        color: var(--orange);
+    }
+    .course-view .content-view .tab-content .comments-view .add-comment textarea{
+        border: var(--lightergray) 0.1vw solid;
+        border-radius: 1vw;
+        color: var(--text);
+        font-family: 'iransans';
+        font-size: 1vw;
+        width: 96%;
+        height: 20vh;
+        padding: 2%;
+        box-shadow: 0 0 0.3vw 0.1vw rgba(0, 0, 0, 0.1);
+        resize: vertical;
+    }
+    .course-view .content-view .tab-content .comments-view .add-comment textarea:focus{
+        outline: none;
+        border: var(--blue) 0.1vw solid;
+    }
+    .course-view .content-view .tab-content .comments-view .add-comment input.submit{
+        font-family: 'iransans';
+        border: none;
+        border-radius: 1vw;
+        color: white;
+        background-color: var(--blue);
+        font-size: 1.2vw;
+        display: block;
+        width: fit-content;
+        cursor: pointer;
+        margin-bottom: 2vw;
+    }
+    .course-view .content-view .tab-content .comments-view .add-comment input.submit:hover{
+        background-color: var(--orange);
+    }
+    .course-view .content-view .tab-content .comments-view .comment a.delete{
+        text-decoration: none;
+        color: red;
+        cursor: pointer;
+        font-size: 1.4vw;
+        position: absolute;
+        top: 1.5vw;
+        left: 2vw;
+    }
+    .course-view .content-view .tab-content .comments-view .comment a.delete:hover{
+        color: var(--orange);
+    }
 }
 @media only screen and (max-width: 800px) {}

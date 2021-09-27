@@ -25,6 +25,10 @@ var CourseSchema = new mongoose.Schema({
     type: [Object],
     default: [],
   },
+  comments: {
+    type: [Object],
+    default: [],
+  },
   price: Number,
   cover: String,
   status: String, // {title, locked, time, video, description}

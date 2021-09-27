@@ -84,7 +84,7 @@ router.post('/login', function(req, res, next){
     }
     else{
         var code = generateCode(4);
-        sms(phone, `رمز یک بار مصرف شما: ${code}`);
+        // sms(phone, `رمز یک بار مصرف شما: ${code}`);
         console.log(code);
         bcrypt.genSalt(10, (err, salt) => bcrypt.hash(code, salt, (err, hash) => {
             if(err) throw err;

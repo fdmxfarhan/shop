@@ -35,9 +35,6 @@ router.post('/complete-info', ensureAuthenticated, (req, res, next) => {
 });
 
 
-
-
-
 module.exports = router;
 
 

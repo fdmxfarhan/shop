@@ -6,6 +6,7 @@ var User = require('../models/User');
 var Course = require('../models/Course');
 const mail = require('../config/mail');
 const dateConvert = require('../config/dateConvert');
+const { session } = require('passport');
 
 router.get('/', (req, res) => {
     res.render('./course/course-list');
@@ -13,13 +14,64 @@ router.get('/', (req, res) => {
 
 router.get('/course-view', (req, res) => {
     var {courseID} = req.query;
+    var sessionNum = 0;
+    if(req.query.sessionNum) sessionNum = req.query.sessionNum;
     Course.findById(courseID, (err, course) => {
         res.render('./course/course-view',{
             user: req.user,
             course,
-            dateConvert
+            dateConvert,
+            sessionNum,
         });
     });
 });
+
+router.get('/delete-session', ensureAuthenticated, (req, res) => {
+    if(req.user.role == 'admin'){
+        var {courseID, sessionNum} = req.query;
+        Course.findById(courseID, (err, course) => {
+            sessions = course.sessions;
+            sessions.splice(sessionNum, 1);
+            Course.updateMany({_id: courseID}, {$set: {sessions}}, (err) => {
+                res.redirect(`/course/course-view?courseID=${courseID}`)
+            })
+        });
+    }
+});
+
+router.post('/add-comment', ensureAuthenticated, (req, res, next) => {
+    var {courseID, text} = req.body;
+    Course.findById(courseID, (err, course) => {
+        var comments = course.comments;
+        comments.push({
+            text,
+            fullname: req.user.fullname,
+            userID: req.user._id,
+            date: new Date(),
+        });
+        Course.updateMany({_id: courseID}, {$set: {comments}}, (err) => {
+            if(err) throw err;
+            res.redirect(`/course/course-view?courseID=${courseID}`)
+        })
+    });
+});
+
+router.get('/delete-comment', ensureAuthenticated, (req, res, next) => {
+    var {courseID, index} = req.query;
+    if(req.user.role == 'admin'){
+        Course.findById(courseID, (err, course) => {
+            var comments = course.comments;
+            comments.splice(index, 1);
+            Course.updateMany({_id: courseID}, {$set: {comments}}, (err) => {
+                if(err) throw err;
+                res.redirect(`/course/course-view?courseID=${courseID}`)
+            })
+        });
+    }
+})
+
+
+
+
 
 module.exports = router;

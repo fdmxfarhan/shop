@@ -1,11 +1,11 @@
 /* --------- Declarations ----------- */
 @font-face{
     font-family: 'iransans';
-    src: url('iransans.ttf');
+    src: url('../iransans.ttf');
 }
 @font-face{
     font-family: 'btitr';
-    src: url('btitr.ttf');
+    src: url('../btitr.ttf');
 }
 :root {
     --light-background: #e4e4e4;

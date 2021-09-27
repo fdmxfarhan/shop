@@ -28,7 +28,12 @@ block content
                     h1 بازدید
                     h2= course.seen
             .cover 
-                img(src="#{course.cover}")
+                -if(course.sessions.length > 0){
+                    video(width="100%" controls)
+                        source(src="#{course.sessions[sessionNum].link}")
+                -}else{
+                    img(src="#{course.cover}")
+                -}
             .tab-links 
                 .link#tab1-btn.active  
                     i.fa.fa-info
@@ -47,11 +52,21 @@ block content
             .tab-content#tab2.hidden 
                 .sessions-area
                     -for(var i=0; i<course.sessions.length; i++){
-                        .session 
+                        .session(class="#{i == sessionNum? 'active' : ''}")
                             h1 #{i+1}: #{course.sessions[i].title}
-                            a.link(href="#") 
-                                i.fa.fa-play 
-                                | ویدیو
+                            -if(user && user.role == 'admin'){
+                                a.link.delete(href="/course/delete-session?courseID=#{course._id}&sessionNum=#{i}") 
+                                    i.fa.fa-trash
+                            -}
+                            -if(course.sessions[i].locked){
+                                a.link
+                                    i.fa.fa-play 
+                                    | ویدیو
+                            -}else{
+                                a.link(href="/course/course-view?courseID=#{course._id}&sessionNum=#{i}") 
+                                    i.fa.fa-play 
+                                    | ویدیو
+                            -}
                             .item
                                 i.fa.fa-clock-o 
                                 | #{course.sessions[i].time}
@@ -74,13 +89,28 @@ block content
             .tab-content#tab3.hidden 
                 h1.course-title 10 دیدگاه
                 .comments-view 
-                    -for(var i=0; i<10; i++){
+                    -if(user){
+                        .add-comment
+                            form(action="/course/add-comment" method="POST") 
+                                input.hidden(type="text" name="courseID" value="#{course._id}")
+                                textarea(name="text" placeholder="دیدگاه خود را بنویسید ... ")
+                                input.submit(type="submit" value="ثبت دیدگاه")
+                    -}else{
+                        h1.login-first برای ارسال دیدگاه ابتدا وارد  
+                            a(href="/users/login") حساب کاربری 
+                            | شوید. 
+                    -}
+                    -for(var i=0; i<course.comments.length; i++){
                         .comment 
                             i.fa.fa-user.avatar
                             .info 
-                                h1 نام و نام خانوادگی
-                                h2 1380/1/6
-                                p این یک کامنت آزمایشی و فقط جهت تست است. این یک کامنت آزمایشی و فقط جهت تست است. این یک کامنت آزمایشی و فقط جهت تست است. این یک کامنت آزمایشی و فقط جهت تست است. 
+                                h1= course.comments[i].fullname
+                                h2= course.comments[i].date
+                                p= course.comments[i].text
+                            -if(user && user.role == 'admin'){
+                                a.delete(href="/course/delete-comment?courseID=#{course._id}&index=#{i}") 
+                                    i.fa.fa-trash
+                            -}
                     -}
             
         .side-bar 
