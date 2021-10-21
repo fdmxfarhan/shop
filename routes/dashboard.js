@@ -4,6 +4,7 @@ var router = express.Router();
 const { ensureAuthenticated } = require('../config/auth');
 var User = require('../models/User');
 var Course = require('../models/Course');
+var Setting = require('../models/Setting');
 const mail = require('../config/mail');
 
 router.get('/', ensureAuthenticated, (req, res, next) => {
@@ -25,7 +26,6 @@ router.get('/', ensureAuthenticated, (req, res, next) => {
         })
     }
 });
-
 router.post('/complete-info', ensureAuthenticated, (req, res, next) => {
     var {firstName, lastName, idNumber, email, address} = req.body;
     var fullname = firstName + ' ' + lastName;
@@ -33,7 +33,17 @@ router.post('/complete-info', ensureAuthenticated, (req, res, next) => {
         res.redirect('/dashboard')
     });
 });
-
+router.get('/home-setting', ensureAuthenticated, (req, res, next) => {
+    if(req.user.role == 'admin'){
+        Setting.findOne({}, (err, setting) => {
+            res.render('home-setting',{
+                user: req.user,
+                setting,
+            });
+        });
+    }
+    else res.send('Access Denied!!')
+});
 
 module.exports = router;
 

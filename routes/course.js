@@ -9,7 +9,12 @@ const dateConvert = require('../config/dateConvert');
 const { session } = require('passport');
 
 router.get('/', (req, res) => {
-    res.render('./course/course-list');
+    Course.find({}, (err, courses) => {
+        res.render('./course/course-list',{
+            user: req.user,
+            courses,
+        });
+    })
 });
 
 router.get('/course-view', (req, res) => {

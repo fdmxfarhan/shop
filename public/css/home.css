@@ -95,6 +95,14 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         z-index: 10;
         padding: 0 5%;
     }
+    header .info .contact input{
+        background-color: transparent;
+        font-family: 'iransans';
+        font-size: 1vw;
+        border: none;
+        color: white;
+        padding: 0.5vw 1vw;
+    }
     header .info .contact{
         float: right;
         color: white;
@@ -190,8 +198,30 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         font-size: 1vw;
         font-weight: normal;
         margin: 0;
+        padding: 0;
+    }
+    header .title-view h2 input{
+        font-size: 1vw;
+        font-weight: normal;
+        margin: 0;
+        padding: 0;
+    }
+    header .title-view input{
+        border: none;
+        background-color: transparent;
+        font-family: 'iransans';
+        display: block;
+        width: 50vw;
+        color: white;
+    }
+    header input:focus{
+        outline: none;
     }
     header .title-view h1{
+        font-size: 3.5vw;
+        margin: 0;
+    }
+    header .title-view h1 input{
         font-size: 3.5vw;
         margin: 0;
     }
@@ -334,6 +364,55 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         color: var(--yellow);
         font-weight: bold;
         font-size: 1.1vw;
+    }
+    button.save{
+        border: none;
+        background-color: transparent;
+        font-size: 1.5vw;
+        color: white;
+        cursor: pointer;
+        display: block;
+        width: fit-content;
+        padding: 1vw;
+    }
+    button.save:hover{
+        color: var(--orange);
+    }
+    .float-right{
+        margin: 0;
+        float: right;
+    }
+    form.upload-logo{
+        position: absolute;
+        bottom: 1vw;
+        z-index: 100;
+        left: 5vw;
+        background-color: rgba(255, 255, 255, 0.26);
+        border-radius: 1vw;
+        padding: 0 0.5vw;
+    }
+    form.upload-logo input{
+        padding: 0;
+        margin: 0;
+    }
+    form.upload-logo button{
+        display: inline;
+    }
+    form.upload-background{
+        position: absolute;
+        bottom: 1vw;
+        z-index: 100;
+        right: 5vw;
+        background-color: rgba(255, 255, 255, 0.26);
+        border-radius: 1vw;
+        padding: 0 0.5vw;
+    }
+    form.upload-background input{
+        padding: 0;
+        margin: 0;
+    }
+    form.upload-background button{
+        display: inline;
     }
 }
 @media only screen and (max-width: 800px) {

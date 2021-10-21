@@ -19,6 +19,7 @@ var usersRoute = require('./routes/users');
 var dashboardRoute = require('./routes/dashboard');
 var courseRoute = require('./routes/course');
 var uploadRoute = require('./routes/upload');
+var settingRoute = require('./routes/setting');
 
 
 // Mongo DB connect
@@ -74,6 +75,7 @@ const port = 3000
 
 // Upload
 app.use('/upload', uploadRoute);
+app.use('/setting', settingRoute);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

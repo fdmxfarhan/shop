@@ -2,7 +2,7 @@ doctype html
 
 html
     head
-        title Register
+        title آکادمی فناورانه 
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
         link(rel="shortcut icon", href="/img/logo.png", type="image/x-icon")
         script(src="/js/jquery-3.5.1.min.js")
@@ -25,21 +25,40 @@ html
                         h1 موجودی کیف پول
                         h2 #{user.card} تومان
                 .links
-                    a.active(href="#") 
-                        i.fa.fa-user
-                        | داشبورد
-                    a(href="#") 
-                        i.fa.fa-book
-                        | دوره‌های من
-                    a(href="#") 
-                        i.fa.fa-shopping-cart
-                        | سفارشات
-                    a(href="#") 
-                        i.fa.fa-dollar
-                        | فاکتورها
-                    a(href="#") 
-                        i.fa.fa-gear
-                        | تنظیمات
+                    -if(user.role == 'user'){
+                        a.active(href="#") 
+                            i.fa.fa-user
+                            | داشبورد
+                        a(href="#") 
+                            i.fa.fa-book
+                            | دوره‌های من
+                        a(href="#") 
+                            i.fa.fa-shopping-cart
+                            | سفارشات
+                        a(href="#") 
+                            i.fa.fa-dollar
+                            | فاکتورها
+                        a(href="#") 
+                            i.fa.fa-gear
+                            | تنظیمات
+                    -}else if(user.role == 'admin'){
+                        a.active(href="#") 
+                            i.fa.fa-user
+                            | داشبورد
+                        a(href="#") 
+                            i.fa.fa-book
+                            | دوره ها
+                        a(href="#") 
+                            i.fa.fa-shopping-cart
+                            | سفارشات
+                        a(href="#") 
+                            i.fa.fa-dollar
+                            | فاکتورها
+                        a(href="/dashboard/home-setting") 
+                            i.fa.fa-gear
+                            | تنظیمات صفحه اصلی
+                        
+                    -}
                     
             .content-area
                 -if(!user.completed)

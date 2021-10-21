@@ -2,7 +2,7 @@ doctype html
 
 html
     head
-        title Register
+        title آکادمی فناورانه 
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
         link(rel="shortcut icon", href="/img/logo.png", type="image/x-icon")
         script(src="/js/jquery-3.5.1.min.js")
@@ -16,10 +16,10 @@ html
             .info 
                 .contact 
                     i.fa.fa-phone 
-                    a(href="tel:09101741337")  09101741337
+                    a(href="tel:09101741337")= setting.phone
                 .contact 
                     i.fa.fa-envelope 
-                    | info@example.com
+                    | #{setting.email}
                 -if(user){
                     a.link(href="/users/login") پنل کاربری
                         i.fa.fa-user
@@ -33,7 +33,7 @@ html
                 a.logo(href="/") 
                     img(src="/img/logo.png")
                 a.link(href="/") خانه
-                a.link(href="#") دوره های آموزشی
+                a.link(href="/course") دوره های آموزشی
                 a.link(href="#") فروشگاه
                 a.link(href="#") خدمات
                 a.link(href="#") اخبار
@@ -46,16 +46,14 @@ html
                 a.icon(href="#") 
                     i.fa.fa-shopping-cart
             .title-view 
-                h2 دوره های آموزشی بورس و بازار های مالی
-                h1 با ما همیشه در 
-                    .orange سود 
-                    | باشید
-                h2.border تیم آموزشی مهندس علیرضا محرابی
+                h2= setting.title1
+                h1= setting.title2
+                h2.border= setting.title3
             img.top-logo(src="/img/logo.png")
         
         section 
             .square-links 
-                a.orange(href="#") 
+                a.orange(href="/course") 
                     i.fa.fa-graduation-cap
                     .text دوره‌های آموزشی
                 a.green(href="#") 
@@ -69,7 +67,7 @@ html
                     .text فروشگاه
         section 
             .click-links 
-                a(href="#") 
+                a(href="/course") 
                     h2 
                         | کلیک کنید
                         i.fa.fa-chevron-left 
@@ -84,7 +82,7 @@ html
                         | کلیک کنید
                         i.fa.fa-chevron-left 
                     h1 بهترین 
-                        .orange دوره های آموزشی 
+                        .orange محصولات آموزشی 
                         | رایگان
                     h2 
                         i.fa.fa-chevron-right

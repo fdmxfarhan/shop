@@ -1,7 +1,21 @@
 extends ../layout
 
 block styles
-    link(rel="stylesheet", href="/css/error.css")
+    link(rel="stylesheet", href="/css/course.css")
 
 block content
-    
+    .product-cards-area 
+        -for(var i=0; i<courses.length; i++){
+            a.card(href="/course/course-view?courseID=#{courses[i]._id}") 
+                .image 
+                    img(src="#{courses[i].cover}")
+                .title= courses[i].title
+                .stars
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    .star-text (#{courses[i].star} امتیاز)
+                .price #{courses[i].price} تومان
+        -}
