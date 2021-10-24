@@ -7,12 +7,6 @@ const User = require('../models/User');
 const Course = require('../models/Course');
 const Payment = require('../models/Payment');
 
-var expires =  {
-    month: 1000 * 60 * 60 * 24 * 30,
-    semester: 1000 * 60 * 60 * 24 * 30 * 6,
-    year: 1000 * 60 * 60 * 24 * 365,
-    forever: 60 * 60 * 24 * 365 * 100,
-}
 
 
 router.get('/', (req, res, next) => {

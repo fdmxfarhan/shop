@@ -472,5 +472,18 @@
         font-size: 0.9vw;
         margin-right: 0.5vw;
     }
+    .course-view .content-view .tab-content a.delete{
+        color: var(--red);
+        margin-right: 1vw;
+        padding-bottom: 1vw;
+        text-decoration: none;
+    }
+    .course-view .content-view .tab-content a.delete i{
+        padding: 0 0.5vw;
+    }
+    .course-view .content-view .tab-content a.delete:hover{
+        color: var(--hover);
+    }
+
 }
 @media only screen and (max-width: 800px) {}

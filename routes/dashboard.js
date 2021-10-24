@@ -44,6 +44,24 @@ router.get('/home-setting', ensureAuthenticated, (req, res, next) => {
     }
     else res.send('Access Denied!!')
 });
+router.get('/cart', ensureAuthenticated, (req, res, next) => {
+    var cart = req.user.cart;
+    Course.find({}, (err, courses) => {
+        for(var i=0; i<cart.length; i++){
+            if(cart[i].type == 'course'){
+                for(var j=0; j<courses.length; j++){
+                    if(cart[i].id.toString() == courses[j]._id.toString()){
+                        cart[i].course = courses[j];
+                    }
+                }
+            }
+        }
+        res.render('./dashboard/user-cart', {
+            user: req.user,
+            cart,
+        })
+    })
+});
 
 module.exports = router;
 

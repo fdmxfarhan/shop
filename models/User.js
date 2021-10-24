@@ -14,9 +14,9 @@ var UserSchema = new mongoose.Schema({
   fullname: String,
   password: String,
   role: String,
-  card: {
-    type: Number,
-    default: 0,
+  cart: {
+    type: [Object],
+    default: [],
   },
   sex: String,
   file: {

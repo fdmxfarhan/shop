@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
         });
     })
 });
-
 router.get('/course-view', (req, res) => {
     var {courseID} = req.query;
     var sessionNum = 0;
@@ -30,7 +29,6 @@ router.get('/course-view', (req, res) => {
         });
     });
 });
-
 router.get('/delete-session', ensureAuthenticated, (req, res) => {
     if(req.user.role == 'admin'){
         var {courseID, sessionNum} = req.query;
@@ -43,7 +41,6 @@ router.get('/delete-session', ensureAuthenticated, (req, res) => {
         });
     }
 });
-
 router.post('/add-comment', ensureAuthenticated, (req, res, next) => {
     var {courseID, text} = req.body;
     Course.findById(courseID, (err, course) => {
@@ -60,7 +57,6 @@ router.post('/add-comment', ensureAuthenticated, (req, res, next) => {
         })
     });
 });
-
 router.get('/delete-comment', ensureAuthenticated, (req, res, next) => {
     var {courseID, index} = req.query;
     if(req.user.role == 'admin'){
@@ -74,8 +70,20 @@ router.get('/delete-comment', ensureAuthenticated, (req, res, next) => {
         });
     }
 })
-
-
+router.get('/delete-course', ensureAuthenticated, (req, res, next) => {
+    var {courseID} = req.query;
+    Course.deleteMany({_id: courseID}, (err) => {
+        res.redirect('/dashboard');
+    })
+});
+router.get('/add-to-cart', ensureAuthenticated, (req, res, next) => {
+    var { courseID } = req.query;
+    var cart = req.user.cart;
+    cart.push({type: 'course', id: courseID});
+    User.updateMany({_id: req.user._id}, {$set: {cart}}, (err, doc) => {
+        res.redirect('/dashboard/cart');
+    });
+});
 
 
 

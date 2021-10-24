@@ -48,7 +48,10 @@ block content
             .tab-content#tab1 
                 h1.course-title= course.title
                 .description= course.description
-            
+                -if(user && user.role == 'admin')
+                    a.delete(href="/course/delete-course?courseID=#{course._id}") 
+                        i.fa.fa-trash 
+                        | حذف دوره
             .tab-content#tab2.hidden 
                 .sessions-area
                     -for(var i=0; i<course.sessions.length; i++){
@@ -116,8 +119,8 @@ block content
         .side-bar 
             .price 
                 h1 #{dateConvert.showPrice(Math.floor(course.price/10))} تومان
-            a.buy(href="#") خرید دوره
-                i.fa.fa-shopping-basket
+            a.buy(href="/course/add-to-cart?courseID=#{course._id}") خرید دوره
+                i.fa.fa-shopping-cart
             .info 
                 .item
                     h1 
