@@ -4,8 +4,12 @@ var router = express.Router();
 const { ensureAuthenticated } = require('../config/auth');
 var User = require('../models/User');
 var Course = require('../models/Course');
+var Product = require('../models/Product');
 var Setting = require('../models/Setting');
 const mail = require('../config/mail');
+const dateConvert = require('../config/dateConvert');
+const generateCode = require('../config/generateCode');
+
 
 router.get('/', ensureAuthenticated, (req, res, next) => {
     if(req.user.role == 'user')
@@ -18,13 +22,19 @@ router.get('/', ensureAuthenticated, (req, res, next) => {
     else if(req.user.role = 'admin')
     {
         Course.find({}, (err, courses) => {
-            res.render('./dashboard/admin-dashboard', {
-                user: req.user,
-                login: req.query.login,
-                courses
+            Product.find({}, (err, products) => {
+                res.render('./dashboard/admin-dashboard', {
+                    user: req.user,
+                    login: req.query.login,
+                    courses,
+                    products,
+                });
             });
         })
     }
+});
+router.get('/clear-cart', ensureAuthenticated, (req, res, next) => {
+    User.updateMany({_id: req.user._id}, {$set: {cart: []}}, (err, doc) => res.send('done'));
 });
 router.post('/complete-info', ensureAuthenticated, (req, res, next) => {
     var {firstName, lastName, idNumber, email, address} = req.body;
@@ -44,24 +54,53 @@ router.get('/home-setting', ensureAuthenticated, (req, res, next) => {
     }
     else res.send('Access Denied!!')
 });
+
 router.get('/cart', ensureAuthenticated, (req, res, next) => {
     var cart = req.user.cart;
     Course.find({}, (err, courses) => {
-        for(var i=0; i<cart.length; i++){
-            if(cart[i].type == 'course'){
-                for(var j=0; j<courses.length; j++){
-                    if(cart[i].id.toString() == courses[j]._id.toString()){
-                        cart[i].course = courses[j];
+        Product.find({}, (err, products) => {
+            var sum = 0;
+            for(var i=0; i<cart.length; i++){
+                if(cart[i].type == 'course'){
+                    for(var j=0; j<courses.length; j++){
+                        if(cart[i].id.toString() == courses[j]._id.toString()){
+                            cart[i].course = courses[j];
+                            sum += cart[i].course.price;
+                        }
+                    }
+                }
+                else if(cart[i].type == 'product'){
+                    for(var j=0; j<products.length; j++){
+                        if(cart[i].id.toString() == products[j]._id.toString()){
+                            cart[i].product = products[j];
+                            sum += cart[i].product.price;
+                        }
                     }
                 }
             }
-        }
-        res.render('./dashboard/user-cart', {
-            user: req.user,
-            cart,
+            res.render('./dashboard/user-cart', {
+                user: req.user,
+                cart,
+                dateConvert,
+                sum,
+            })
         })
     })
 });
+router.get('/remove-from-cart', ensureAuthenticated, (req, res, next) => {
+    var cart = req.user.cart;
+    var {courseID} = req.query;
+    for(var i=0; i<cart.length; i++){
+        if(cart[i].id.toString() == courseID){
+            cart.splice(i, 1);
+            i--;
+        }
+    }
+    User.updateMany({_id: req.user._id}, {$set: {cart}}, (err, doc) => {
+        res.redirect('/dashboard/cart');
+    });
+});
+
 
 module.exports = router;
 

@@ -1,0 +1,51 @@
+@media only screen and (min-width: 800px) {
+    .cart-view{
+        overflow: hidden;
+        width: 100%;
+        /* background-color: lightblue; */
+    }
+    .cart-view table{
+        width: 80%;
+        margin: 1vw auto;
+        text-align: right;
+    }
+    .cart-view table th.row{width: 3vw;}
+    .cart-view table th.price{width: 6vw;}
+    .cart-view table td{
+        border-top: lightgray 0.1vw solid;
+        font-family: 'iransans';
+        font-size: 1.1vw;
+        color: var(--text);
+        padding: 0.3vw 2vw;
+    }
+    .cart-view table th{
+        font-family: 'iransans';
+        font-size: 1.1vw;
+        color: var(--text);
+        padding: 0.3vw 2vw;
+    }
+    .cart-view table td a{
+        font-size: 1.2vw;
+        text-decoration: none;
+    }
+    .green{color: var(--green)}
+    .red{color: var(--red)}
+    .cart-view table td a:hover{
+        color: var(--hover);
+    }
+    .bold{font-weight: bold; color: black;}
+    a.pay{
+        background-color: var(--blue);
+        display: block;
+        width: fit-content;
+        padding: 0.5vw 3vw;
+        color: white;
+        text-decoration: none;
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        margin: 1vw auto;
+        margin-right: 10%;
+        border-radius: 0.5vw;
+    }
+    a.pay:hover{background-color: var(--hover);}
+}

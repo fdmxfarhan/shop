@@ -45,4 +45,18 @@ router.post('/set-titles', ensureAuthenticated, (req, res, next) => {
 
 
 
+router.post('/set-cover', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
+    const file = req.file;
+    var {productID} = req.body;
+    if (!file) res.send('no file to upload');
+    else {
+        var type = file.mimetype.split('/')[0];
+        var cover = file.destination.slice(6) + '/' + file.originalname;
+        Setting.updateMany({}, {$set: {cover: {type, cover}}}, (err, setting) => {
+            if(err) console.log(err);
+            res.redirect('/dashboard/home-setting');
+        });
+    }
+});
+
 module.exports = router;

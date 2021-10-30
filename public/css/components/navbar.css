@@ -110,6 +110,18 @@
         color: var(--text);
         padding-left: 1vw;
         padding-top: 1vw;
+        position: relative;
+    }
+    header nav a.icon .notif-num{
+        position: absolute;
+        background-color: var(--red);
+        color: white;
+        right: -0.4vw;
+        bottom: 0.5vw;
+        font-family: 'iransans';
+        font-size: 0.5vw;
+        padding: 0.1vw 0.3vw 0 0.3vw;
+        border-radius: 50%;
     }
     header nav a.icon:hover{color: var(--hover);}
     header .title-view {

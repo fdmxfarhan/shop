@@ -1,0 +1,10 @@
+.popup#add-image-popup
+    i.fa.fa-times.close-popup
+    h1.popup-title افزودن عکس جدید
+    form(action="/upload/product-image" enctype="multipart/form-data" method="POST") 
+        input.hidden(type="text" name="productID" value="#{product._id}")
+        .middle-col
+            .upload-area فایل خود را انتخاب کنید
+                i.fa.fa-cloud-upload
+                input.file(type="file" name="myFile")
+            input.submit(type="submit" value="آپلود")

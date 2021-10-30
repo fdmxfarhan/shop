@@ -11,7 +11,14 @@ html
         link(rel='stylesheet', href='/css/components/footer.css')
     body
         header 
-            video(id="vid" src="/img/home/gray_aban.mp4" autoplay muted loop)
+            -if(setting.cover){
+                -if(setting.cover.type == 'video')
+                    video(id="vid" src="#{setting.cover.cover}" autoplay muted loop)
+                -if(setting.cover.type == 'image')
+                    img(src="#{setting.cover.cover}")
+            -}else{
+                video(id="vid" src="/img/home/gray_aban.mp4" autoplay muted loop)
+            -}                        
             .overlay
             .info 
                 .contact 
@@ -34,17 +41,19 @@ html
                     img(src="/img/logo.png")
                 a.link(href="/") خانه
                 a.link(href="/course") دوره های آموزشی
-                a.link(href="#") فروشگاه
+                a.link(href="/product") فروشگاه
                 a.link(href="#") خدمات
                 a.link(href="#") اخبار
                 a.link(href="#") تماس با ما
                 a.link(href="#") درباره ما
-                a.icon(href="#") 
-                    i.fa.fa-moon-o
+                //- a.icon(href="#") 
+                //-     i.fa.fa-moon-o
                 a.icon(href="#") 
                     i.fa.fa-search
                 a.icon(href="/dashboard/cart") 
                     i.fa.fa-shopping-cart
+                    //- -if(user && user.cart.length > 0)
+                    //-     .notif-num= user.cart.length
             .title-view 
                 h2= setting.title1
                 h1= setting.title2
@@ -56,13 +65,13 @@ html
                 a.orange(href="/course") 
                     i.fa.fa-graduation-cap
                     .text دوره‌های آموزشی
-                a.green(href="#") 
+                a.green(href="/product") 
                     i.fa.fa-microchip
                     .text محصولات آموزشی
                 a.blue(href="#") 
                     i.fa.fa-newspaper-o
                     .text اخبار
-                a.red(href="#") 
+                a.red(href="/product") 
                     i.fa.fa-shopping-cart
                     .text فروشگاه
         section 
@@ -77,7 +86,7 @@ html
                     h2 
                         i.fa.fa-chevron-right
                         | کلیک کنید
-                a(href="#") 
+                a(href="/product") 
                     h2 
                         | کلیک کنید
                         i.fa.fa-chevron-left 

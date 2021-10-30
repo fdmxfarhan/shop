@@ -1,0 +1,95 @@
+extends ../layout
+
+block styles
+    link(rel="stylesheet", href="/css/product.css")
+
+block content
+    h1.product-title= product.title
+    .product-view
+        .content-view
+            .cover 
+                img#cover(src="#{product.cover}")
+                -for(var i=0; i<product.images.length; i++)
+                    img.hidden(src="#{product.images[i]}" id="cover#{i}")
+            .tab-links 
+                .link#tab1-btn.active  
+                    i.fa.fa-info
+                    h1 توضیحات
+                .link#tab2-btn  
+                    i.fa.fa-gear
+                    h1 مشخصات
+                .link#tab3-btn.last  
+                    i.fa.fa-comment
+                    h1 دیدگاه‌ها
+            
+            .tab-content#tab1 
+                h1.product-title= product.title
+                .description= product.description
+                -if(user && user.role == 'admin')
+                    a.delete(href="/product/delete-product?productID=#{product._id}") 
+                        i.fa.fa-trash 
+                        | حذف محصول
+            .tab-content#tab2.hidden 
+                h1.product-title مشخصات محصول
+                table.property 
+                    -for(var i=0; i<product.properties.length; i++){
+                        tr
+                            td.title= product.properties[i].title
+                            td.value= product.properties[i].value
+                            -if(user && user.role == 'admin')
+                                td 
+                                    a(href="/product/delete-property?productID=#{product._id}&propertyNum=#{i}") 
+                                        i.fa.fa-trash
+                    -}
+                -if(user && user.role == 'admin')
+                    .add-property 
+                        form(action="/product/add-property" method="POST") 
+                            input.hidden(type="text" name="productID" value="#{product._id}")
+                            input.text(type="text" name="title" placeholder="عنوان")
+                            input.text(type="text" name="value" placeholder="مقدار")
+                            input.submit(type="submit" value="ثبت")
+            .tab-content#tab3.hidden 
+                h1.product-title #{product.comments.length} دیدگاه
+                .comments-view 
+                    -if(user){
+                        .add-comment
+                            form(action="/product/add-comment" method="POST") 
+                                input.hidden(type="text" name="productID" value="#{product._id}")
+                                textarea(name="text" placeholder="دیدگاه خود را بنویسید ... ")
+                                input.submit(type="submit" value="ثبت دیدگاه")
+                    -}else{
+                        h1.login-first برای ارسال دیدگاه ابتدا وارد  
+                            a(href="/users/login") حساب کاربری 
+                            | شوید. 
+                    -}
+                    -for(var i=0; i<product.comments.length; i++){
+                        .comment 
+                            i.fa.fa-user.avatar
+                            .info 
+                                h1= product.comments[i].fullname
+                                h2= product.comments[i].date
+                                p= product.comments[i].text
+                            -if(user && user.role == 'admin'){
+                                a.delete(href="/product/delete-comment?productID=#{product._id}&index=#{i}") 
+                                    i.fa.fa-trash
+                            -}
+                    -}
+            
+        .side-bar 
+            .price 
+                h1 #{dateConvert.showPrice(Math.floor(product.price/10))} تومان
+            a.buy(href="/product/add-to-cart?productID=#{product._id}") خرید محصول
+                i.fa.fa-shopping-cart
+            .images-view
+                -for(var i=0; i<product.images.length; i++){
+                    .image
+                        img(src="#{product.images[i]}" id="img-btn#{i}")
+                -}
+                -if(user && user.role == 'admin')
+                    .add-img#add-image-button 
+                        i.fa.fa-plus
+    -if(user && user.role == 'admin')
+        include ../components/add-image 
+
+    #images-length.hidden= product.images.length
+    script(src="/js/product.js") 

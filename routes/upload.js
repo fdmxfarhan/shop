@@ -7,7 +7,9 @@ const mail = require('../config/mail');
 const { ensureAuthenticated } = require('../config/auth');
 const User = require('../models/User');
 const Course = require('../models/Course');
+const Product = require('../models/Product');
 const mkdirp = require('mkdirp');
+const generateCode = require('../config/generateCode');
 
 router.use(bodyparser.urlencoded({ extended: true }));
 
@@ -43,6 +45,41 @@ router.post('/add-course', ensureAuthenticated, upload.single('myFile'), (req, r
             }).catch(err => {
                 if (err) console.log(err);
             });
+    }
+});
+
+router.post('/add-product', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
+    const file = req.file;
+    var { title, category, available, price, description } = req.body;
+    if(available) available = true;
+    else         available = false;
+    
+    if (!file) {
+        res.send('no file to upload');
+    } else {
+        var cover = file.destination.slice(6) + '/' + file.originalname;
+        const newProduct = new Product({ title, category, available, price, description, cover, lastUpdate: new Date() });
+        newProduct.save()
+            .then(product => {
+                res.redirect(`/product/product-view?productID=${newProduct._id}`);
+            }).catch(err => {
+                if (err) console.log(err);
+            });
+    }
+});
+router.post('/product-image', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
+    const file = req.file;
+    var {productID} = req.body;
+    if (!file) res.send('no file to upload');
+    else {
+        var image = file.destination.slice(6) + '/' + file.originalname;
+        Product.findById(productID, (err, product) => {
+            var images = product.images;
+            images.push(image);
+            Product.updateMany({_id: productID}, {$set: {images}}, (err, doc) => {
+                res.redirect(`/product/product-view?productID=${productID}`)
+            })
+        })
     }
 });
 

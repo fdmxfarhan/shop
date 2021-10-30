@@ -4,5 +4,46 @@ block styles
     link(rel="stylesheet", href="/css/dashboard/cart.css")
 
 block content
-    
+    .cart-view
+        table 
+            tr
+                th.row ردیف
+                th عنوان
+                th.row 
+                th.row
+                th.price مبلغ (تومان)
+            -for(var i=0; i<cart.length; i++){
+                -if(cart[i].type == 'course'){
+                    tr 
+                        td.row= i+1
+                        td= cart[i].course.title
+                        td.row 
+                            a.green(href="/course/course-view?courseID=#{cart[i].course._id}") 
+                                i.fa.fa-eye 
+                        td.row 
+                            a.red(href="/dashboard/remove-from-cart?courseID=#{cart[i].course._id}") 
+                                i.fa.fa-trash
+                        td.price= dateConvert.showPrice(Math.floor(cart[i].course.price/10))
+                -}
+                -else if(cart[i].type == 'product'){
+                    tr 
+                        td.row= i+1
+                        td= cart[i].product.title
+                        td.row 
+                            a.green(href="/product/product-view?productID=#{cart[i].product._id}") 
+                                i.fa.fa-eye 
+                        td.row 
+                            a.red(href="/dashboard/remove-from-cart?productID=#{cart[i].product._id}") 
+                                i.fa.fa-trash
+                        td.price= dateConvert.showPrice(Math.floor(cart[i].product.price/10))
+                -}
+                
+            -}
+            tr  
+                td.row
+                td.bold مجموع
+                td.row
+                td.row
+                td.price= dateConvert.showPrice(Math.floor(sum/10))
+        a.pay(href="#") پرداخت
     script(src="/js/cart.js") 

@@ -79,7 +79,8 @@ router.get('/delete-course', ensureAuthenticated, (req, res, next) => {
 router.get('/add-to-cart', ensureAuthenticated, (req, res, next) => {
     var { courseID } = req.query;
     var cart = req.user.cart;
-    cart.push({type: 'course', id: courseID});
+    if(cart.map(e => e.id.toString()).indexOf(courseID) == -1)
+        cart.push({type: 'course', id: courseID});
     User.updateMany({_id: req.user._id}, {$set: {cart}}, (err, doc) => {
         res.redirect('/dashboard/cart');
     });

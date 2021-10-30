@@ -1,0 +1,575 @@
+@media only screen and (min-width: 800px) {
+    h1.product-title{
+        font-family: 'iransans';
+        font-size: 1.4vw;
+        width: 90%;
+        margin: 1vw auto;
+        color: var(--darkblue);
+        margin-bottom: 0;
+    }
+    .product-view{
+        overflow: hidden;
+        width: 90%;
+        margin: 1vw auto;
+    }
+    .product-view .content-view{
+        width: 65%;
+        float: right;
+        padding: 1%;
+        padding-top: 0;
+    }
+    .product-view .side-bar{
+        float: right;
+        width: 29%;
+        margin-right: 2%;
+        padding: 1%;
+    }
+    .product-view .content-view .statistics{
+        background-color: white;
+        border-radius: 0.5vw;
+        padding: 2vw 5vw;
+        overflow: hidden;
+        padding-left: 0;
+        box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.1);
+    }
+    .product-view .content-view .statistics i{
+        float: right;
+        color: var(--lightgray);
+        font-size: 1.5vw;
+        padding-top: 0.7vw;
+    }
+    .product-view .content-view .statistics .info{
+        float: right;
+        margin-right: 1.5vw;
+        margin-left: 3vw;
+    }
+    .product-view .content-view .statistics .info h1{
+        font-family: 'iransans';
+        font-size: 1.1vw;
+        color: var(--yellow);
+        margin: 0;
+        padding: 0;
+    }
+    .product-view .content-view .statistics .info h2{
+        font-family: 'iransans';
+        color: var(--text);
+        font-size: 1vw;
+        margin: 0;
+        padding: 0;
+    }
+    .product-view .content-view .cover{
+        width: 100%;
+        margin-top: 1vw;
+        overflow: hidden;
+        border-radius: 0.5vw;
+        height: auto;
+        background-color: lightblue;
+    }
+    .product-view .content-view .cover img{
+        width: 100%;
+        display: block;
+    }
+    .product-view .content-view .cover video{
+        width: 100%;
+        display: block;
+    }
+    .product-view .side-bar .price{
+        background-color: white;
+        border-radius: 0.5vw;
+        overflow: hidden;
+        padding-left: 0;
+        box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.1);
+    }
+    .product-view .side-bar .price h1{
+        color: var(--green);
+        text-align: center;
+        padding: 1.5vw 0;
+        margin: 0;
+        font-size: 1.7vw;
+        font-family: 'iransans';
+    }
+    .product-view .side-bar a.buy{
+        overflow: hidden;
+        border-radius: 0.5vw;
+        display: block;
+        background-color: var(--orange);
+        color: white;
+        position: relative;
+        text-decoration: none;
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        text-align: center;
+        padding: 1vw 0;
+        margin-top: 1vw;
+    }
+    .product-view .side-bar a.buy:hover{
+        background-color: var(--green);
+    }
+    .product-view .side-bar a.buy i{
+        position: absolute;
+        left: 1vw;
+        top: 1.5vw;
+    }
+    .product-view .side-bar .info{
+        background-color: white;
+        border-radius: 0.5vw;
+        overflow: hidden;
+        padding-left: 0;
+        box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.1);
+        margin-top: 1.5vw;
+    }
+    .product-view .side-bar .info .item{
+        overflow: hidden;
+        padding: 1vw 2vw;
+        border-bottom: var(--lightgray) 0.1 solid;
+    }
+    .product-view .side-bar .info .item h1{
+        margin: 0;
+        padding: 0;
+        float: right;
+        color: rgb(104, 104, 104);
+        font-size: 1vw;
+    }
+    .product-view .side-bar .info .item h1 i{
+        color: var(--yellow);
+        font-size: 1.2vw;
+        width: 2vw;
+    }
+    .product-view .side-bar .info .item h2{
+        margin: 0;
+        padding: 0;
+        float: left;
+        color: var(--gray);
+        font-size: 1vw;
+    }
+
+    .product-view .content-view .tab-links{
+        overflow: hidden;
+        margin-top: 1vw;
+        padding: 1vw 0.2vw;
+    }
+    .product-view .content-view .tab-links .link{
+        float: right;
+        width: 32%;
+        margin-left: 2%;
+        background-color: white;
+        border-radius: 0.5vw;
+        overflow: hidden;
+        padding-left: 0;
+        box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.1);
+        color: var(--text);
+        cursor: pointer;
+        text-align: center;
+        padding: 1vw 0;
+    }
+    .product-view .content-view .tab-links .link.last{margin-left: 0;}
+
+    .product-view .content-view .tab-links .link.active, .product-view .content-view .tab-links .link:hover{
+        background-color: var(--yellow);
+        color: white;
+    }
+    .product-view .content-view .tab-links .link i{
+        font-size: 2vw;
+    }
+    .product-view .content-view .tab-links .link h1{
+        margin: 0;
+        padding: 0;
+        font-size: 1.1vw;
+        margin-top: 0.5vw;
+        font-weight: normal;
+    }
+    .product-view .content-view .tab-content{
+        background-color: white;
+        border-radius: 0.5vw;
+        overflow: hidden;
+        padding-left: 0;
+        box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.1);
+        margin-top: 1vw;
+    }
+    .product-view .content-view .tab-content .description{
+        width: 90%;
+        margin: 2vw auto;
+        font-size: 1.1vw;
+        color: var(--text);
+        text-align: justify;
+    }
+    .product-view .content-view .tab-content h1.product-title{
+        margin-top: 2vw;
+        margin-bottom: 0;
+    }
+    .product-view .content-view .tab-content .sessions-area{
+        width: 90%;
+        margin: 2vw auto;
+    }
+    .product-view .content-view .tab-content .sessions-area .session{
+        background-color: var(--lightergray);
+        border-radius: 0.5vw;
+        border: var(--lightgray) 0.1vw solid;
+        margin-bottom: 1vw;
+        overflow: hidden;
+        padding: 1vw 2vw;
+    }
+    .product-view .content-view .tab-content .sessions-area .session.active{
+        background-color: rgb(187, 218, 228);
+    }
+    .product-view .content-view .tab-content .sessions-area .session h1{
+        margin: 0;
+        padding: 0;
+        float: right;
+        font-family: 'iransans';
+        font-size: 1.1vw;
+        color: var(--text);
+    }
+    .product-view .content-view .tab-content .sessions-area .session a.link{
+        display: block;
+        text-decoration: none;
+        float: left;
+        color: var(--text);
+        font-family: 'iransans';
+        font-size: 1vw;
+    }
+    .product-view .content-view .tab-content .sessions-area .session a.link.delete{
+        margin-right: 1vw;
+    }
+    .product-view .content-view .tab-content .sessions-area .session a.link i{
+        padding: 0 0.5vw;
+        color: var(--yellow);
+    }
+    .product-view .content-view .tab-content .sessions-area .session a.link:hover{
+        color: var(--orange);
+    }
+    .product-view .content-view .tab-content .sessions-area .session .item{
+        display: block;
+        text-decoration: none;
+        float: left;
+        color: var(--text);
+        font-family: 'iransans';
+        font-size: 1vw;
+        margin-left: 1vw;
+    }
+    .product-view .content-view .tab-content .sessions-area .session .item i{
+        padding: 0 0.5vw;
+        color: var(--yellow);
+    }
+    .product-view .content-view .tab-content .sessions-area .session .item .green{
+        display: inline;
+        color: var(--green);
+    }
+    .product-view .content-view .tab-content .sessions-area .session .item .red{
+        display: inline;
+        color: var(--red);
+    }
+    .product-view .content-view .tab-content .comments-view{
+        width: 90%;
+        margin: 1vw auto;
+        margin-bottom: 2vw;
+    }
+    .product-view .content-view .tab-content .comments-view .comment{
+        background-color: var(--lightergray);
+        border-radius: 0.5vw;
+        margin-bottom: 1vw;
+        overflow: hidden;
+        padding-bottom: 1vw;
+        position: relative;
+    }
+    .product-view .content-view .tab-content .comments-view .comment i.avatar{
+        float: right;
+        font-size: 5vw;
+        color: var(--gray);
+        background-color: white;
+        padding: 0.5vw 1vw;
+        border-radius: 0.1vw;
+        margin-top: 2vw;
+        margin-right: 1vw;
+        margin-left: 1vw;
+        display: block;
+    }
+    .product-view .content-view .tab-content .comments-view .comment .info{
+        float: right;
+        width: 80%;
+    }
+    .product-view .content-view .tab-content .comments-view .comment .info h1{
+        font-size: 1.1vw;
+        color: var(--darkblue);
+        margin-top: 2vw;
+        margin-bottom: 0;
+    }
+    .product-view .content-view .tab-content .comments-view .comment .info h2{
+        font-size: 0.9vw;
+        color: var(--gray);
+        margin-top: 0;
+    }
+    .product-view .content-view .tab-content .comments-view .comment .info p{
+        font-size: 1vw;
+        color: var(--text);
+        margin-top: 1vw;
+    }
+    .product-view .content-view .tab-content .add-session{
+        text-align: center;
+        color: var(--orange);
+        margin-top: 1vw;
+        padding: 0.6vw 0;
+        cursor: pointer;
+        border-radius: 0.5vw;
+    }
+    .product-view .content-view .tab-content .add-session:hover{
+        background-color: var(--orange);
+        color: white;
+    }
+    .product-view .content-view .tab-content .add-session i{
+        padding: 0 0.5vw;
+    }
+    .product-view .content-view .tab-content .sessions-area .session a.link.delete:hover i{
+        color: red;
+    }
+    .product-view .content-view .tab-content .comments-view h1.login-first{
+        color: var(--gray);
+        font-family: 'iransans';
+        font-size: 1.5vw;
+    }
+    .product-view .content-view .tab-content .comments-view h1.login-first a{
+        color: var(--blue);
+        font-family: 'iransans';
+        text-decoration: none;
+    }
+    .product-view .content-view .tab-content .comments-view h1.login-first a:hover{
+        color: var(--orange);
+    }
+    .product-view .content-view .tab-content .comments-view .add-comment textarea{
+        border: var(--lightergray) 0.1vw solid;
+        border-radius: 1vw;
+        color: var(--text);
+        font-family: 'iransans';
+        font-size: 1vw;
+        width: 96%;
+        height: 20vh;
+        padding: 2%;
+        box-shadow: 0 0 0.3vw 0.1vw rgba(0, 0, 0, 0.1);
+        resize: vertical;
+    }
+    .product-view .content-view .tab-content .comments-view .add-comment textarea:focus{
+        outline: none;
+        border: var(--blue) 0.1vw solid;
+    }
+    .product-view .content-view .tab-content .comments-view .add-comment input.submit{
+        font-family: 'iransans';
+        border: none;
+        border-radius: 1vw;
+        color: white;
+        background-color: var(--blue);
+        font-size: 1.2vw;
+        display: block;
+        width: fit-content;
+        cursor: pointer;
+        margin-bottom: 2vw;
+    }
+    .product-view .content-view .tab-content .comments-view .add-comment input.submit:hover{
+        background-color: var(--orange);
+    }
+    .product-view .content-view .tab-content .comments-view .comment a.delete{
+        text-decoration: none;
+        color: red;
+        cursor: pointer;
+        font-size: 1.4vw;
+        position: absolute;
+        top: 1.5vw;
+        left: 2vw;
+    }
+    .product-view .content-view .tab-content .comments-view .comment a.delete:hover{
+        color: var(--orange);
+    }
+    .product-cards-area{
+        width: 90%;
+        margin: auto;
+        padding: 2vw 0;
+        overflow: hidden;
+    }
+    .product-cards-area .not-found{
+        text-align: center;
+        color: rgb(145, 145, 145);
+        font-size: 1.3vw;
+    }
+    .product-cards-area .not-found a{
+        text-decoration: none;
+        color: var(--blue);
+        font-weight: bold;
+    }
+    .product-cards-area .not-found a:hover{
+        color: chocolate;
+    }
+    .product-cards-area .card{
+        text-decoration: none;
+        float: right;
+        width: 30%;
+        margin: 1vw;
+        background-color: var(--background);
+        box-shadow:  0.3vw  0.3vw 0.6vw #bebebe,
+                    -0.3vw -0.3vw 0.6vw #ffffff;
+        border-radius: 0.2vw;
+        min-height: 25vw;
+        position: relative;
+    }
+    .product-cards-area .card .image img{
+        width: 100%;
+        /* height: 12vw; */
+        border-top-left-radius: 0.2vw;
+        border-top-right-radius: 0.2vw;
+    }
+
+    .product-cards-area .card .title{
+        color: var(--text);
+        font-weight: bold;
+        width: 90%;
+        margin: auto;
+        font-size: 1.2vw;
+    }
+    .product-cards-area .card .text{
+        color: rgb(90, 90, 90);
+        width: 90%;
+        margin: auto;
+        font-size: 1vw;
+        text-align: justify;
+        
+    }
+    .product-cards-area .card .price{
+        position: absolute;
+        bottom: 1vw;
+        left: 2vw;
+        font-size: 1.2vw;
+        font-weight: bold;
+        color: var(--orange);
+    }
+    .product-cards-area .card.add{
+        background-color: rgb(255, 192, 185);
+        text-align: center;
+        cursor: pointer;
+        transition-duration: 500ms;
+    }
+    .product-cards-area .card.add:hover{
+        background-color: salmon;
+    }
+    .product-cards-area .card.add i.plus{
+        color: white;
+        margin: 6vw auto;
+        margin-bottom: 0;
+        font-size: 10vw;
+    }
+    .product-cards-area .card.add .add-text{
+        color: white;
+        font-size: 2vw;
+        margin: 0;
+    }
+    
+    .product-cards-area .card .stars{
+        padding: 0.5vw 1vw;
+        overflow: hidden;
+    }
+    .product-cards-area .card .stars i{
+        color: var(--yellow);
+        font-size: 1.5vw;
+    }
+    .product-cards-area .card .stars .star-text{
+        display: inline;
+        font-size: 0.9vw;
+        margin-right: 0.5vw;
+    }
+    .product-view .content-view .tab-content a.delete{
+        color: var(--red);
+        margin-right: 1vw;
+        padding-bottom: 1vw;
+        text-decoration: none;
+    }
+    .product-view .content-view .tab-content a.delete i{
+        padding: 0 0.5vw;
+    }
+    .product-view .content-view .tab-content a.delete:hover{
+        color: var(--hover);
+    }
+    .images-view{
+        overflow: hidden;
+        margin-top: 2vw;
+    }
+    .images-view .image{
+        float: right;
+        width: 30%;
+        margin-left: 2%;
+        margin-bottom: 0.5vw;
+        overflow: hidden;
+        height: 6vw;
+        cursor: pointer;
+        border: lightgray 0.1vw solid;
+        align-items: center;
+        align-content: center;
+        display: flex;
+        border-radius: 0.3vw;
+    }
+    .images-view .image:hover{
+        background-color: var(--lightgray);
+    }
+    .images-view .image img{
+        width: 100%;
+        border-radius: 0.3vw;
+    }
+    .images-view .add-img{
+        display: flex;
+        align-content: center;
+        color: var(--text);
+        font-size: 2vw;
+        width: 30%;
+        margin-left: 2%;
+        float: right;
+        text-align: center;
+        align-items: center;
+        cursor: pointer;
+        border: lightgray 0.1vw solid;
+        height: 6vw;
+        border-radius: 0.5vw;
+        padding: 0;
+        
+    }
+    .images-view .add-img:hover{
+        color: white;
+        border: var(--hover) 0.1vw solid;
+        background-color: var(--hover);
+    }
+    .images-view .add-img i{
+        text-align: center;
+        margin: auto;
+    }
+    .tab-content .add-property{
+        padding: 2vw 0;
+    }
+    .tab-content .add-property input.text{
+        font-family: 'iransans';
+        font-size: 1vw;
+        padding: 0.4vw 2vw;
+        width: 30%;
+        margin-right: 1vw;
+
+    }
+    .tab-content .add-property input.submit{
+        display: inline;
+        border-radius: 0.5vw;
+        margin-right: 1vw;
+    }
+    .tab-content table.property{
+        width: 90%;
+        margin: 1vw auto;
+    }
+    .tab-content table.property td{
+        border-top: lightgray 0.1vw solid;
+        font-family: 'iransans';
+        font-size: 1vw;
+        color: var(--text);
+        padding: 0.4vw 1vw;
+    }
+    .tab-content table.property td.title{
+        text-align: right;
+        font-weight: bold;
+    }
+    .tab-content table.property td.value{
+        text-align: right;
+    }
+    
+}
+@media only screen and (max-width: 800px) {}

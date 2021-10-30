@@ -26,7 +26,7 @@ html
                         h2 #{user.card} تومان
                 .links
                     -if(user.role == 'user'){
-                        a.active(href="#") 
+                        a.active(href="/dashboard") 
                             i.fa.fa-user
                             | داشبورد
                         a(href="#") 
@@ -42,10 +42,10 @@ html
                             i.fa.fa-gear
                             | تنظیمات
                     -}else if(user.role == 'admin'){
-                        a.active(href="#") 
+                        a.active(href="/dashboard") 
                             i.fa.fa-user
                             | داشبورد
-                        a(href="#") 
+                        a(href="/course") 
                             i.fa.fa-book
                             | دوره ها
                         a(href="#") 
@@ -57,9 +57,7 @@ html
                         a(href="/dashboard/home-setting") 
                             i.fa.fa-gear
                             | تنظیمات صفحه اصلی
-                        
                     -}
-                    
             .content-area
                 -if(!user.completed)
                     include ../components/complete-info

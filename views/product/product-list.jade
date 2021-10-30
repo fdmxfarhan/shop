@@ -1,0 +1,21 @@
+extends ../layout
+
+block styles
+    link(rel="stylesheet", href="/css/course.css")
+
+block content
+    .product-cards-area 
+        -for(var i=0; i<products.length; i++){
+            a.card(href="/product/product-view?productID=#{products[i]._id}") 
+                .image 
+                    img(src="#{products[i].cover}")
+                .title= products[i].title
+                .stars
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    .star-text (#{products[i].star} امتیاز)
+                .price #{products[i].price} تومان
+        -}

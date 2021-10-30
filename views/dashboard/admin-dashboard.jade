@@ -45,10 +45,28 @@ block content
                     .star-text (#{courses[i].star} امتیاز)
                 .price #{courses[i].price} تومان
         -}
-        
+    h1.section-title محصولات
+        i.fa.fa-plus#add-product-btn
+    .product-cards-area 
+        -for(var i=0; i<products.length; i++){
+            a.card(href="/product/product-view?productID=#{products[i]._id}") 
+                .image 
+                    img(src="#{products[i].cover}")
+                .title= products[i].title
+                .stars 
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    i.fa.fa-star.star
+                    .star-text (#{products[i].star} امتیاز)
+                .price #{products[i].price} تومان
+        -}
+    
         
 
     include ../components/add-course
+    include ../components/add-product
 
 
 
