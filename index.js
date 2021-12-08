@@ -25,7 +25,7 @@ var productRoute = require('./routes/product');
 
 
 // Mongo DB connect
-mongoose.connect('mongodb://localhost/shop', {useNewUrlParser: true, useUnifiedTopology: true}, (err) =>{
+mongoose.connect('mongodb://localhost/fanavaraneh', {useNewUrlParser: true, useUnifiedTopology: true}, (err) =>{
     if(err) throw err;
     else console.log('Database connected :)');
 });
