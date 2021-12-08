@@ -26,35 +26,35 @@ html
                         h2 #{user.card} تومان
                 .links
                     -if(user.role == 'user'){
-                        a.active(href="/dashboard") 
+                        a#link1(href="/dashboard") 
                             i.fa.fa-user
                             | داشبورد
-                        a(href="#") 
+                        a#link2(href="#") 
                             i.fa.fa-book
                             | دوره‌های من
-                        a(href="#") 
+                        a#link3(href="#") 
                             i.fa.fa-shopping-cart
                             | سفارشات
-                        a(href="#") 
+                        a#link4(href="#") 
                             i.fa.fa-dollar
                             | فاکتورها
-                        a(href="#") 
+                        a#link5(href="#") 
                             i.fa.fa-gear
                             | تنظیمات
                     -}else if(user.role == 'admin'){
-                        a.active(href="/dashboard") 
+                        a#link1(href="/dashboard") 
                             i.fa.fa-user
                             | داشبورد
-                        a(href="/course") 
+                        a#link2(href="/course") 
                             i.fa.fa-book
                             | دوره ها
-                        a(href="#") 
+                        a#link3(href="/dashboard/users") 
                             i.fa.fa-shopping-cart
-                            | سفارشات
-                        a(href="#") 
+                            | کاربران
+                        a#link4(href="#") 
                             i.fa.fa-dollar
                             | فاکتورها
-                        a(href="/dashboard/home-setting") 
+                        a#link5(href="/dashboard/home-setting") 
                             i.fa.fa-gear
                             | تنظیمات صفحه اصلی
                     -}

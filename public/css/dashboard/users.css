@@ -1,0 +1,41 @@
+@media only screen and (min-width: 800px) {
+    .users-view{
+        width: 100%;
+    }
+    .users-view table{
+        width: 80%;
+        margin: 1vw auto;
+        text-align: center;
+    }
+    .users-view table th{
+        border-bottom: var(--gray) 0.1vw solid;
+        padding: 0.3vw 0;
+        font-family: 'iransans';
+        font-size: 1vw;
+        color: var(--gray);
+    }
+    .users-view table td{
+        font-family: 'iransans';
+        font-size: 1vw;
+        padding: 0.5vw 0;
+        border-bottom: var(--lightergray) 0.1vw solid;
+    }
+    .users-view table td a.admin{
+        background-color: var(--red);
+        color: white;
+        text-decoration: none;
+        font-family: 'iransans';
+        border-radius: 0.5vw;
+        padding: 0.1vw 1vw;
+        font-size: 1vw;
+    }
+    .users-view table td a.user{
+        background-color: var(--blue);
+        color: white;
+        text-decoration: none;
+        font-family: 'iransans';
+        border-radius: 0.5vw;
+        padding: 0.1vw 1vw;
+        font-size: 1vw;
+    }
+}

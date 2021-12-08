@@ -1,0 +1,34 @@
+extends layout
+
+block styles
+    link(rel="stylesheet", href="/css/dashboard/users.css")
+
+block content
+    .users-view
+        table 
+            tr 
+                th ردیف
+                th نام و نام خانوادگی
+                th تلفن
+                th نشانی
+                th نقش
+                th 
+            -for(var i=0; i<users.length; i++){
+                tr 
+                    td= i+1
+                    td= users[i].fullname
+                    td= users[i].phone
+                    td= users[i].address
+                    td
+                        -if(users[i].role == 'admin')
+                            a.admin(href="/dashboard/make-user?userID=#{users[i]._id}") admin 
+                        -else
+                            a.user(href="/dashboard/make-admin?userID=#{users[i]._id}") user
+                    td
+                        a.delete(href="/dashboard/delete-user?userID=#{users[i]._id}") 
+                            i.fa.fa-trash
+
+            -}
+    script(src="/js/admin-users.js") 
+
+

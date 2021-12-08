@@ -54,7 +54,6 @@ router.get('/home-setting', ensureAuthenticated, (req, res, next) => {
     }
     else res.send('Access Denied!!')
 });
-
 router.get('/cart', ensureAuthenticated, (req, res, next) => {
     var cart = req.user.cart;
     Course.find({}, (err, courses) => {
@@ -100,6 +99,36 @@ router.get('/remove-from-cart', ensureAuthenticated, (req, res, next) => {
         res.redirect('/dashboard/cart');
     });
 });
+router.get('/users', ensureAuthenticated, (req, res, next) => {
+    if(req.user.role == 'admin'){
+        User.find({}, (err, users) => {
+            res.render('./dashboard/admin-users', {
+                user: req.user,
+                users,
+                
+            })
+        })
+    }
+});
+router.get('/make-user', ensureAuthenticated, (req, res, next) => {
+    var {userID} = req.query;
+    User.updateMany({_id: userID}, {$set: {role: 'user'}}, (err, doc) => {
+        res.redirect('/dashboard/users');
+    })
+});
+router.get('/make-admin', ensureAuthenticated, (req, res, next) => {
+    var {userID} = req.query;
+    User.updateMany({_id: userID}, {$set: {role: 'admin'}}, (err, doc) => {
+        res.redirect('/dashboard/users');
+    })
+});
+router.get('/delete-user', ensureAuthenticated, (req, res, next) => {
+    var {userID} = req.query;
+    User.deleteMany({_id: userID}, (err, doc) => {
+        res.redirect('/dashboard/users');
+    })
+});
+
 
 
 module.exports = router;
