@@ -11,7 +11,10 @@ html
         link(rel='stylesheet', href='/css/components/footer.css')
     body
         header 
-            video(id="vid" src="/img/home/gray_aban.mp4" autoplay muted loop)
+            -if(setting.background.type == 'image')
+                img.background(src="#{setting.background.link}")
+            -else
+                video(id="vid" src="#{setting.background.link}" autoplay muted loop)
             .overlay
             .info 
                 form(action="/setting/set-contact" method='POST') 
@@ -59,12 +62,12 @@ html
                     button.save(type="submit")
                         i.fa.fa-save
             img.top-logo(src="/img/logo.png")
-            form.upload-logo(action="/setting/set-cover" method='POST') 
-                input(type="file" name="title3")
+            form.upload-logo(action="/setting/set-logo" enctype="multipart/form-data" method='POST') 
+                input(type="file" name="myFile" accept="image/png")
                 button.save(type="submit")
                     i.fa.fa-cloud-upload
-            form.upload-background(action="/setting/set-logo" method='POST') 
-                input(type="file" name="title3")
+            form.upload-background(action="/upload/set-cover" enctype="multipart/form-data" method='POST') 
+                input(type="file" name="myFile")
                 button.save(type="submit")
                     i.fa.fa-cloud-upload
         section 

@@ -9,24 +9,31 @@ const User = require('../models/User');
 const Course = require('../models/Course');
 const Setting = require('../models/Setting');
 const mkdirp = require('mkdirp');
-
 router.use(bodyparser.urlencoded({ extended: true }));
+
+Setting.findOne({}, (err, setting) => {
+    if(!setting){
+        var newSetting = new Setting();
+        newSetting.save().then(doc => console.log('settings saved :)')).catch(err => console.log(err));
+    }
+    else if(!setting.background){
+        Setting.deleteMany({}, (err, doc) => {
+            var newSetting = new Setting();
+            newSetting.save().then(doc => console.log('settings saved :)')).catch(err => console.log(err));
+        })
+    }
+})
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        const dir = 'public/files/' + Date.now().toString();
+        const dir = 'public/img/';
         mkdirp(dir, err => cb(err, dir));
     },
     filename: function(req, file, cb) {
-        cb(null, file.originalname)
+        cb(null, 'logo.png')
     }
 });
+
 var upload = multer({ storage: storage });
-Setting.findOne({}, (err, setting) => {
-    if(!setting) {
-        var newSetting = new Setting({});
-        newSetting.save().then(doc => {}).catch(err => {if(err) console.log(err)});
-    }
-})
 
 router.post('/set-contact', ensureAuthenticated, (req, res, next) => {
     var {phone, email} = req.body;
@@ -42,21 +49,13 @@ router.post('/set-titles', ensureAuthenticated, (req, res, next) => {
         res.redirect('/dashboard/home-setting');
     });
 });
-
-
-
-router.post('/set-cover', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
+router.post('/set-logo', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     const file = req.file;
-    var {productID} = req.body;
     if (!file) res.send('no file to upload');
     else {
-        var type = file.mimetype.split('/')[0];
-        var cover = file.destination.slice(6) + '/' + file.originalname;
-        Setting.updateMany({}, {$set: {cover: {type, cover}}}, (err, setting) => {
-            if(err) console.log(err);
-            res.redirect('/dashboard/home-setting');
-        });
+        res.redirect('/dashboard/home-setting');
     }
 });
+
 
 module.exports = router;

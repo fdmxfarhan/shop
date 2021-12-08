@@ -11,14 +11,10 @@ html
         link(rel='stylesheet', href='/css/components/footer.css')
     body
         header 
-            -if(setting.cover){
-                -if(setting.cover.type == 'video')
-                    video(id="vid" src="#{setting.cover.cover}" autoplay muted loop)
-                -if(setting.cover.type == 'image')
-                    img(src="#{setting.cover.cover}")
-            -}else{
-                video(id="vid" src="/img/home/gray_aban.mp4" autoplay muted loop)
-            -}                        
+            -if(setting.background.type == 'image')
+                img.background(src="#{setting.background.link}")
+            -else
+                video(id="vid" src="#{setting.background.link}" autoplay muted loop)
             .overlay
             .info 
                 .contact 
@@ -98,62 +94,81 @@ html
                         | کلیک کنید
         section 
             .cards-view 
-                a(href="#") 
-                    img(src="/img/home/cover1.jpg")
-                    h1.title عنوان دوره
-                    .stars 
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        .star-text (5 امتیاز)
-                    .comments 
-                        i.fa.fa-comment
-                        | 65
-                    .price 3,000,000 تومان
-                a(href="#") 
-                    img(src="/img/home/cover2.jpg")
-                    h1.title عنوان دوره
-                    .stars 
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        .star-text (5 امتیاز)
-                    .comments 
-                        i.fa.fa-comment
-                        | 65
-                    .price 3,000,000 تومان
-                a(href="#") 
-                    img(src="/img/home/cover3.jpg")
-                    h1.title عنوان دوره
-                    .stars 
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        .star-text (5 امتیاز)
-                    .comments 
-                        i.fa.fa-comment
-                        | 65
-                    .price 3,000,000 تومان
-                a(href="#") 
-                    img(src="/img/home/cover4.jpg")
-                    h1.title عنوان دوره
-                    .stars 
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        i.fa.fa-star.star
-                        .star-text (5 امتیاز)
-                    .comments 
-                        i.fa.fa-comment
-                        | 65
-                    .price 3,000,000 تومان
+                -if(courses.length >= 4){
+                    -for(var i=0; i<4; i++){
+                        a(href="/course/course-view?courseID=#{courses[i]._id}") 
+                            img(src="#{courses[i].cover}")
+                            h1.title= courses[i].title
+                            .stars 
+                                i.fa.fa-star.star
+                                i.fa.fa-star.star
+                                i.fa.fa-star.star
+                                i.fa.fa-star.star
+                                i.fa.fa-star.star
+                                .star-text (#{courses[i].star} امتیاز)
+                            .comments 
+                                i.fa.fa-comment
+                                | #{courses[i].comments.length}
+                            .price #{courses[i].price} تومان
+                    -}
+                -}else{
+                    a(href="#") 
+                        img(src="/img/home/cover1.jpg")
+                        h1.title عنوان دوره
+                        .stars 
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            .star-text (5 امتیاز)
+                        .comments 
+                            i.fa.fa-comment
+                            | 65
+                        .price 3,000,000 تومان
+                    a(href="#") 
+                        img(src="/img/home/cover2.jpg")
+                        h1.title عنوان دوره
+                        .stars 
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            .star-text (5 امتیاز)
+                        .comments 
+                            i.fa.fa-comment
+                            | 65
+                        .price 3,000,000 تومان
+                    a(href="#") 
+                        img(src="/img/home/cover3.jpg")
+                        h1.title عنوان دوره
+                        .stars 
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            .star-text (5 امتیاز)
+                        .comments 
+                            i.fa.fa-comment
+                            | 65
+                        .price 3,000,000 تومان
+                    a(href="#") 
+                        img(src="/img/home/cover4.jpg")
+                        h1.title عنوان دوره
+                        .stars 
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            i.fa.fa-star.star
+                            .star-text (5 امتیاز)
+                        .comments 
+                            i.fa.fa-comment
+                            | 65
+                        .price 3,000,000 تومان
+                -}
         include ./components/footer
         script.
             document.getElementById('vid').play();

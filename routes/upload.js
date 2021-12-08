@@ -8,6 +8,7 @@ const { ensureAuthenticated } = require('../config/auth');
 const User = require('../models/User');
 const Course = require('../models/Course');
 const Product = require('../models/Product');
+const Setting = require('../models/Setting');
 const mkdirp = require('mkdirp');
 const generateCode = require('../config/generateCode');
 
@@ -47,7 +48,6 @@ router.post('/add-course', ensureAuthenticated, upload.single('myFile'), (req, r
             });
     }
 });
-
 router.post('/add-product', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     const file = req.file;
     var { title, category, available, price, description } = req.body;
@@ -82,7 +82,6 @@ router.post('/product-image', ensureAuthenticated, upload.single('myFile'), (req
         })
     }
 });
-
 router.post('/course-cover', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     const file = req.file;
     const { courseID } = req.body;
@@ -96,7 +95,6 @@ router.post('/course-cover', ensureAuthenticated, upload.single('myFile'), (req,
         });
     }
 });
-
 router.post('/session', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     var file = req.file;
     var { courseID, title, time, locked } = req.body;
@@ -114,6 +112,18 @@ router.post('/session', ensureAuthenticated, upload.single('myFile'), (req, res,
                 res.redirect(`/course/course-view?courseID=${courseID}`);
             });
         })
+    }
+});
+router.post('/set-cover', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
+    const file = req.file;
+    if (!file) res.send('no file to upload');
+    else {
+        var type = file.mimetype.split('/')[0];
+        var link = file.destination.slice(6) + '/' + file.originalname;
+        Setting.updateMany({}, {$set: {background: {type, link}}}, (err, setting) => {
+            if(err) console.log(err);
+            res.redirect('/dashboard/home-setting');
+        });
     }
 });
 

@@ -77,8 +77,13 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         right: 0;
         width: 100%;
     }
-    
-    
+    header img.background{
+        position: absolute;
+        top: -5vw;
+        right: 0;
+        width: 100%;
+        display: block;
+    }
     header .overlay{
         background-image: linear-gradient(90deg, rgba(24, 15, 199, 0.555), rgba(16, 16, 180, 0.116), rgb(16, 8, 173));
         width: 100%;
