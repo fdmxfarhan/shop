@@ -11,7 +11,7 @@ module.exports = (phone, text) => {
         },
         body: {
             username: '09336448037',
-            password: '7613',
+            password: '2240@fdmxFDMX',
             to: phone,
             from: '50004001448037',
             text: text,
