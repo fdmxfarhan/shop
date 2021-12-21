@@ -335,9 +335,13 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         color: var(--text);
         background-color: white;
         position: relative;
+        overflow: hidden;
     }
     .cards-view img{
-        width: 100%;
+        /* width: 100%; */
+        height: 13vw;
+        display: block;
+        margin: auto;
     }
     .cards-view h1.title{
         font-family: 'iransans';
