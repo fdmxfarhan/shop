@@ -21,7 +21,14 @@ router.get('/login', (req, res, next) => {
     else
         res.render('login');
 });
-  
+
+router.get('/login2', (req, res, next) => {
+    if(req.user)
+        res.redirect('/dashboard');
+    else
+        res.render('login2');
+});
+
 router.post('/register', (req, res, next) => {
     const { firstName, lastName, address, phone, school, idNumber, password, configpassword } = req.body;
     const role = 'user', card = 0;
@@ -95,7 +102,24 @@ router.post('/login', function(req, res, next){
         }));
     }
 });
-  
+
+router.post('/login2', function(req, res, next){
+    var {phone, password} = req.body;
+    User.findOne({phone, password}, (err, user) => {
+        if(user){
+            passport.authenticate('local', {
+                successRedirect: '/dashboard?login=true',
+                failureRedirect: '/users/login',
+                failureFlash: true
+            })(req, res, next);
+        }
+        else {
+            req.flash('success_msg', 'نام کاربری یا کلمه عبور یافت نشد');
+            res.redirect('/users/login2');
+        }
+    })
+});
+
 router.post('/enter-code', function(req, res, next){
     const {phone, code, enterCode} = req.body;
     bcrypt.compare(code, enterCode, function(err, isMatch){

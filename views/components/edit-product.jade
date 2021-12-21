@@ -1,0 +1,31 @@
+link(rel="stylesheet", href="/css/components/add-course.css")
+.popup#edit-product-popup
+    i.fa.fa-times.close-popup
+    h1.popup-title ویرایش محصول
+    form(action="/upload/edit-product" enctype="multipart/form-data" method="POST") 
+        input.hidden(type="text" name="productID" value="#{product._id}")
+        .two-column
+            .column
+                .text-input 
+                    i.fa.fa-pencil 
+                    input(type="text" name="title" placeholder="عنوان محصول" value="#{product.title}")
+                .text-input 
+                    i.fa.fa-user 
+                    input(type="text" name="category" placeholder="دسته بندی" value="#{product.category}")
+                .text-input 
+                    i.fa.fa-dollar
+                    input(type="number" name="price" placeholder="هزینه (ریال)" value="#{product.price}")
+                .check-input 
+                    input(type="checkbox" name="available" id="available" value="true" checked)
+                    label(for="available") در دسترس
+                
+            .break-side 
+            .column
+                textarea(name="description" placeholder="توضیحات")= product.description
+                .upload-area انتخاب عکس کاور
+                    i.fa.fa-cloud-upload
+                    input.file(type="file" name="myFile")
+            button.submit(type="submit")
+                i.fa.fa-save 
+                | ثبت 
+script(src="/js/add-product.js") 

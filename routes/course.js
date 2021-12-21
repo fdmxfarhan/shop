@@ -21,6 +21,10 @@ router.get('/course-view', (req, res) => {
     var sessionNum = 0;
     if(req.query.sessionNum) sessionNum = req.query.sessionNum;
     Course.findById(courseID, (err, course) => {
+        course.seen += 1;
+        Course.updateMany({_id: courseID}, {$set: {seen: course.seen}}, (err, doc) => {
+            if(err) console.log(err);
+        })
         res.render('./course/course-view',{
             user: req.user,
             course,

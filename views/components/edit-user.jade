@@ -5,20 +5,26 @@
             .part 
                 .text-input
                     i.fa.fa-user 
-                    input(type="text" name="firstName" placeholder="نام" required)
+                    input(type="text" name="firstName" placeholder="نام" value="#{firstName}" required)
                 .text-input
                     i.fa.fa-user 
-                    input(type="text" name="lastName" placeholder="نام خانوادگی" required)
+                    input(type="text" name="lastName" placeholder="نام خانوادگی" value="#{lastName}" required)
                 .text-input
                     i.fa.fa-credit-card-alt
-                    input(type="text" name="idNumber" placeholder="کد ملی")
-                .text-input
-                    i.fa.fa-envelope 
-                    input(type="email" name="email" placeholder="پست الکترونیکی")
+                    input(type="text" name="idNumber" placeholder="کد ملی" value="#{idNumber}")
             .part
                 .text-input
+                    i.fa.fa-envelope 
+                    input(type="email" name="email" placeholder="پست الکترونیکی" value="#{email}")
+                .text-input
                     i.fa.fa-map-marker 
-                    input(type="text" name="address" placeholder="نشانی")
+                    input(type="text" name="address" placeholder="نشانی" value="#{address}")
+        input.submit(type="submit" value="ثبت")
+    br
+    h1.title تغییر کلمه عبور:
+    form(action="/dashboard/password-change" method="POST") 
+        .overflow-hidden
+            .part 
                 .text-input
                     i.fa.fa-key 
                     input(type="password" name="password" placeholder="کلمه عبور" required)
@@ -26,6 +32,6 @@
                     i.fa.fa-key
                     input(type="password" name="password2" placeholder="تایید کلمه عبور" required)
                 
-                
-        input.submit(type="submit" value="ثبت")
+                input.submit.change(type="submit" value="ثبت")
+
         

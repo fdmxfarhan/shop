@@ -160,15 +160,16 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         z-index: 10;
         border-radius: 0.5vw;
         padding: 0 3%;
+        padding-right: 0.5vw;
     }
     header nav a.logo{
         display: block;
         float: right;
-        padding: 0.3vw 2vw;
+        padding: 0.2vw 0;
         padding-left: 5vw;
     }
     header nav a.logo img{
-        width: 2.5vw;
+        width: 2.8vw;
     }
     header nav a.link{
         float: right;
@@ -196,22 +197,22 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
     header nav a.icon:hover{color: var(--hover);}
     header .title-view {
         position: absolute;
-        top: 20vw;
+        top: 17vw;
         right: 6%;
         z-index: 10;
         color: white;
     }
     header .title-view h2{
-        font-size: 1vw;
+        font-size: 2vw;
         font-weight: normal;
         margin: 0;
         padding: 0;
     }
     header .title-view h2 input{
-        font-size: 1vw;
         font-weight: normal;
         margin: 0;
         padding: 0;
+        font-size: 2vw;
     }
     header .title-view input{
         border: none;
@@ -225,11 +226,11 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         outline: none;
     }
     header .title-view h1{
-        font-size: 3.5vw;
+        font-size: 6vw;
         margin: 0;
     }
     header .title-view h1 input{
-        font-size: 3.5vw;
+        font-size: 6vw;
         margin: 0;
     }
     header .title-view h1 .orange{

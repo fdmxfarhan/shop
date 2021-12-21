@@ -1,3 +1,20 @@
 .error-area{
     text-align: center;
 }
+.text.success h1{
+    color: rgb(36, 179, 7);
+}
+.text.success{
+    margin: 4vw 0;
+}
+a.back{
+    font-family: 'iransans';
+    font-size: 1.5vw;
+    color: rgb(47, 162, 201);
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+a.back:hover{
+    color: chocolate;
+}

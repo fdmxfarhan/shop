@@ -2,14 +2,14 @@ header
     img.video(src="/img/teaching.jpg", alt="img")
     .overlay
     .info 
-        .contact 
-            i.fa.fa-phone 
-            a(href="tel:09101741337")  09101741337
-        .contact 
-            i.fa.fa-envelope 
-            | info@example.com
+        //- .contact 
+        //-     i.fa.fa-phone 
+        //-     a(href="tel:09101741337")  09101741337
+        //- .contact 
+        //-     i.fa.fa-envelope 
+        //-     | info@example.com
         -if(user){
-            a.link(href="/users/login") پنل کاربری
+            a.link(href="/users/login")= user.fullname == ''? 'پنل کاربری' : user.fullname
                 i.fa.fa-user
             a.link(href="/users/logout") خروج
                 i.fa.fa-sign-out
@@ -31,7 +31,7 @@ header
         a.link(href="#") درباره ما
         //- a.icon(href="#") 
         //-     i.fa.fa-moon-o
-        a.icon(href="#") 
+        a.icon(href="/search") 
             i.fa.fa-search
         a.icon(href="/dashboard/cart") 
             i.fa.fa-shopping-cart

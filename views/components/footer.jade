@@ -27,7 +27,7 @@ footer
         .news-letter 
             h1.title عضویت در خبرنامه
             .text برای دریافت پیشنهادات شگفت انگیز و تخفیف های ویژه شماره موبایل خود را وارد کنید 
-            form(action="/newsletter") 
+            form(action="/newsletter" method="POST") 
                 input.text(type="text" name="phone" placeholder="0912XXXXXXX")
                 input.submit(type="submit" value="مشترک شدن")
     h1.copy-right کلیه حقوق مادی و معنوی متعلق به آکادمی فناورانه می‌باشد.

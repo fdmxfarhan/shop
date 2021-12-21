@@ -118,7 +118,7 @@ block content
             
         .side-bar 
             .price 
-                h1 #{dateConvert.showPrice(Math.floor(course.price/10))} تومان
+                h1 #{dateConvert.showPrice(Math.floor(course.price))} ریال
             a.buy(href="/course/add-to-cart?courseID=#{course._id}") خرید دوره
                 i.fa.fa-shopping-cart
             .info 
@@ -153,6 +153,20 @@ block content
                         h2 دارد
                     -else
                         h2 دارد
-    -if(user && user.role == 'admin')            
+            -if(course.support){
+                a.support-button(href="tel:#{course.supportNumber}")
+                    i.fa.fa-phone
+                    | تماس با پشتیبانی (#{course.supportNumber})
+            -}
+            -if(user && user.role == 'admin'){
+                .edit-course#edit-btn
+                    i.fa.fa-edit 
+                    | ویرایش اطلاعات دوره
+            -}
+
+    -if(user && user.role == 'admin'){
         include ../components/add-session
+        include ../components/edit-course
+    -}
+
     script(src="/js/course.js") 

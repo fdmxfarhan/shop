@@ -570,6 +570,21 @@
     .tab-content table.property td.value{
         text-align: right;
     }
-    
+    .edit-course{
+        margin-top: 2vw;
+        background-color: rgb(18, 168, 18);
+        border-radius: 0.5vw;
+        color: white;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        padding: 1vw ;
+        cursor: pointer;
+    }
+    .edit-course:hover{
+        background-color: green;
+    }
+    .edit-course i{
+        padding-left: 1vw;
+    }
 }
 @media only screen and (max-width: 800px) {}

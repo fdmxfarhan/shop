@@ -13,9 +13,12 @@ html
         link(rel="stylesheet", href="/css/components/footer.css")
         link(rel="stylesheet", href="/css/components/navbar.css")
         link(rel="stylesheet", href="/css/components/register.css")
+        link(rel="stylesheet", href="/css/components/messages.css")
         block styles
     body
         .black-modal
+
+        include ../components/messages
         include ../components/navbar
         .dashboard
             .side-bar 
@@ -38,7 +41,7 @@ html
                         a#link4(href="#") 
                             i.fa.fa-dollar
                             | فاکتورها
-                        a#link5(href="#") 
+                        a#link5(href="/dashboard/setting") 
                             i.fa.fa-gear
                             | تنظیمات
                     -}else if(user.role == 'admin'){
@@ -54,12 +57,17 @@ html
                         a#link4(href="#") 
                             i.fa.fa-dollar
                             | فاکتورها
+                        a#link5(href="/dashboard/setting") 
+                            i.fa.fa-gear
+                            | تنظیمات
                         a#link5(href="/dashboard/home-setting") 
                             i.fa.fa-gear
                             | تنظیمات صفحه اصلی
                     -}
             .content-area
-                -if(!user.completed)
+                -if(editing)
+                    include ../components/edit-user
+                -else if(!user.completed)
                     include ../components/complete-info
                 -else
                     include ../components/user-info

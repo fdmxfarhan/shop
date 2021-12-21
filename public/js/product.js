@@ -44,11 +44,17 @@ $(document).ready(function(){
         $('#add-image-popup').fadeIn(500);
         $('.black-modal').fadeIn(500);
     })
+    $('#edit-btn').click(() => {
+        $('#edit-product-popup').fadeIn(500);
+        $('.black-modal').fadeIn(500);
+    })
     $('.black-modal').click(() => {
+        $('#edit-product-popup').fadeOut(500);
         $('#add-image-popup').fadeOut(500);
         $('.black-modal').fadeOut(500);
     })
     $('.close-popup').click(() => {
+        $('#edit-product-popup').fadeOut(500);
         $('#add-image-popup').fadeOut(500);
         $('.black-modal').fadeOut(500);
     })
@@ -73,5 +79,6 @@ $(document).ready(function(){
     });
     for (let i = 0; i < images.length; i++) 
         images[i].cover.hide();
+
 
 });

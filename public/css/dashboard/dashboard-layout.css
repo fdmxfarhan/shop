@@ -278,6 +278,17 @@ table{border-collapse: collapse;}
         opacity: 0;
         cursor: pointer;
     }
+    input.submit.change{
+        display: block;
+        width: fit-content;
+        margin-bottom: 3vw;
+        margin-top: 0;
+    }
+    h1.title{
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        margin: 0;
+    }
 }
 
 @media only screen and (max-width: 800px) {

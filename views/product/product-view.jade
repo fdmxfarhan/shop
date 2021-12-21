@@ -77,7 +77,7 @@ block content
             
         .side-bar 
             .price 
-                h1 #{dateConvert.showPrice(Math.floor(product.price/10))} تومان
+                h1 #{dateConvert.showPrice(Math.floor(product.price))} ریال
             a.buy(href="/product/add-to-cart?productID=#{product._id}") خرید محصول
                 i.fa.fa-shopping-cart
             .images-view
@@ -88,8 +88,15 @@ block content
                 -if(user && user.role == 'admin')
                     .add-img#add-image-button 
                         i.fa.fa-plus
-    -if(user && user.role == 'admin')
+            -if(user && user.role == 'admin'){
+                .edit-course#edit-btn
+                    i.fa.fa-edit 
+                    | ویرایش اطلاعات دوره
+            -}
+    -if(user && user.role == 'admin'){
         include ../components/add-image 
+        include ../components/edit-product 
+    -}
 
     #images-length.hidden= product.images.length
     script(src="/js/product.js") 

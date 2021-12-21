@@ -15,7 +15,7 @@ html
                 img.background(src="#{setting.background.link}")
             -else
                 video(id="vid" src="#{setting.background.link}" autoplay muted loop)
-            .overlay
+            //- .overlay
             .info 
                 form(action="/setting/set-contact" method='POST') 
                     .contact 

@@ -1,0 +1,49 @@
+link(rel="stylesheet", href="/css/components/add-course.css")
+.popup#edit-course-popup
+    i.fa.fa-times.close-popup
+    h1.popup-title ویرایش دوره
+    form(action="/upload/edit-course" enctype="multipart/form-data" method="POST") 
+        input.hidden(type="text" name="courseID" value="#{course._id}")
+        .two-column
+            .column
+                .text-input 
+                    i.fa.fa-pencil 
+                    input(type="text" name="title" placeholder="عنوان دوره" value="#{course.title}")
+                .text-input 
+                    i.fa.fa-user 
+                    input(type="text" name="producer" placeholder="مدرس" value="#{course.producer}")
+                .text-input 
+                    i.fa.fa-clock-o
+                    input(type="text" name="time" placeholder="زمان دوره (ساعت)" value="#{course.time}")
+                .text-input 
+                    i.fa.fa-database
+                    input(type="text" name="stage" placeholder="سطح دوره" value="#{course.stage}")
+                .text-input 
+                    i.fa.fa-phone 
+                    input(type="text" name="supportNumber" placeholder="تلفن پشتیبانی" value="#{course.supportNumber}")
+                .check-input 
+                    -if(course.subtitle)
+                        input(type="checkbox" name="subtitle" id="subtitle" value="true" checked)
+                    -else
+                        input(type="checkbox" name="subtitle" id="subtitle" value="true")
+                    label(for="subtitle") زیرنویس
+                .check-input 
+                    -if(course.support)
+                        input(type="checkbox" name="support" id="support" value="true" checked)
+                    -else
+                        input(type="checkbox" name="support" id="support" value="true")
+                    label(for="support") پشتیبانی
+                
+            .break-side 
+            .column
+                .text-input 
+                    i.fa.fa-dollar
+                    input(type="number" name="price" placeholder="هزینه (ریال)" value="#{course.price}")
+                textarea(name="description" placeholder="توضیحات")= course.description
+                .upload-area انتخاب عکس کاور
+                    i.fa.fa-cloud-upload
+                    input.file(type="file" name="myFile")
+            button.submit(type="submit")
+                i.fa.fa-save 
+                | ثبت 
+script(src="/js/add-course.js") 

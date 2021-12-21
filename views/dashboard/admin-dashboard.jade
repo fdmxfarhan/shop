@@ -9,24 +9,24 @@ block content
         .card 
             .title تعداد دوره ها
             .progress-circle.over50.p85
-                span 100
+                span= courses.length
                 .left-half-clipper
-                    .first50-bar
-                    .value-bar
+                    //- .first50-bar
+                    //- .value-bar
         .card 
             .title محصولات
             .progress-circle.over50.p85
-                span 200
+                span= products.length
                 .left-half-clipper
-                    .first50-bar
-                    .value-bar
+                    //- .first50-bar
+                    //- .value-bar
         .card 
-            .title درآمد
+            .title کاربران
             .progress-circle.over50.p85
-                span 100
+                span= users.length
                 .left-half-clipper
-                    .first50-bar
-                    .value-bar
+                    //- .first50-bar
+                    //- .value-bar
 
     h1.section-title دوره ها
         i.fa.fa-plus#add-course-btn
@@ -43,7 +43,7 @@ block content
                     i.fa.fa-star.star
                     i.fa.fa-star.star
                     .star-text (#{courses[i].star} امتیاز)
-                .price #{courses[i].price} تومان
+                .price #{courses[i].price} ریال
         -}
     h1.section-title محصولات
         i.fa.fa-plus#add-product-btn
@@ -60,7 +60,7 @@ block content
                     i.fa.fa-star.star
                     i.fa.fa-star.star
                     .star-text (#{products[i].star} امتیاز)
-                .price #{products[i].price} تومان
+                .price #{products[i].price} ریال
         -}
     
         

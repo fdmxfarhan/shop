@@ -1,0 +1,32 @@
+extends layout
+
+block styles
+    link(rel="stylesheet", href="/css/search.css")
+block content
+    .search-area
+        form(action="/search" method="POST") 
+            .search-input
+                input(type="text" name="text" placeholder="جستجو..." value="#{typeof text == 'undefined'? '' : text}")
+                button(type="submit")
+                    i.fa.fa-search
+    -if(coursesList && productsList){
+        .list-view 
+            -for(var i=0; i<coursesList.length; i++){
+                a.item(href="/course/course-view?courseID=#{coursesList[i]._id}") 
+                    .cover 
+                        img(src="#{coursesList[i].cover}")
+                    .info 
+                        h1= coursesList[i].title
+                        p= coursesList[i].description
+            -}
+            -for(var i=0; i<productsList.length; i++){
+                a.item(href="/product/product-view?productID=#{productsList[i]._id}") 
+                    .cover 
+                        img(src="#{productsList[i].cover}")
+                    .info 
+                        h1= productsList[i].title
+                        p= productsList[i].description
+            -}
+    -}
+
+    script(src="/javascripts/search.js")

@@ -22,6 +22,10 @@ router.get('/product-view', (req, res) => {
     var sessionNum = 0;
     if(req.query.sessionNum) sessionNum = req.query.sessionNum;
     Product.findById(productID, (err, product) => {
+        product.seen += 1;
+        Product.updateMany({_id: productID}, {$set: {seen: product.seen}}, (err, doc) => {
+            if(err) console.log(err);
+        });
         res.render('./product/product-view',{
             user: req.user,
             product,

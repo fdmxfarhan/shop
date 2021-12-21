@@ -36,6 +36,10 @@ var CourseSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  showInHome: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 var Course = mongoose.model('Course', CourseSchema);

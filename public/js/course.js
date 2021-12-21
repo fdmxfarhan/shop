@@ -44,13 +44,22 @@ $(document).ready(function(){
         $('#add-session-popup').fadeIn(500);
         $('.black-modal').fadeIn(500);
     })
+    $('#edit-btn').click(() => {
+        $('#edit-course-popup').fadeIn(500);
+        $('.black-modal').fadeIn(500);
+    })
     $('.black-modal').click(() => {
+        $('#edit-course-popup').fadeOut(500);
         $('#add-session-popup').fadeOut(500);
         $('.black-modal').fadeOut(500);
     })
     $('.close-popup').click(() => {
+        $('#edit-course-popup').fadeOut(500);
         $('#add-session-popup').fadeOut(500);
         $('.black-modal').fadeOut(500);
     })
+   
     
+
+
 });

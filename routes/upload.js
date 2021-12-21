@@ -48,6 +48,23 @@ router.post('/add-course', ensureAuthenticated, upload.single('myFile'), (req, r
             });
     }
 });
+router.post('/edit-course', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
+    const file = req.file;
+    var { courseID, title, producer, time, stage, supportNumber, subtitle, support, price, description } = req.body;
+    if(subtitle) subtitle = true;
+    else         subtitle = false;
+    if(support) support = true;
+    else         support = false;
+    
+    if (!file) {
+        res.send('no file to upload');
+    } else {
+        var cover = file.destination.slice(6) + '/' + file.originalname;
+        Course.updateMany({_id: courseID} , {$set: { title, producer, time, stage, supportNumber, subtitle, support, price, description, cover, lastUpdate: new Date() }}, (err, doc) => {
+            res.redirect(`/course/course-view?courseID=${courseID}`);
+        });
+    }
+});
 router.post('/add-product', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     const file = req.file;
     var { title, category, available, price, description } = req.body;
@@ -65,6 +82,21 @@ router.post('/add-product', ensureAuthenticated, upload.single('myFile'), (req, 
             }).catch(err => {
                 if (err) console.log(err);
             });
+    }
+});
+router.post('/edit-product', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
+    const file = req.file;
+    var { productID, title, category, available, price, description } = req.body;
+    if(available) available = true;
+    else         available = false;
+    
+    if (!file) {
+        res.send('no file to upload');
+    } else {
+        var cover = file.destination.slice(6) + '/' + file.originalname;
+        Product.updateMany({_id: productID}, {$set: { title, category, available, price, description, cover, lastUpdate: new Date() }}, (err, doc) => {
+            res.redirect(`/product/product-view?productID=${productID}`);
+        });
     }
 });
 router.post('/product-image', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
