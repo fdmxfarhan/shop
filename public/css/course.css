@@ -4,9 +4,26 @@
         font-size: 1.4vw;
         width: 90%;
         margin: 1vw auto;
+        /* color: white; */
+        /* position: absolute;
+        top: 15vw;
+        z-index: 1000; */
         color: var(--darkblue);
         margin-bottom: 0;
     }
+    h1.course-title1{
+        font-family: 'iransans';
+        font-size: 1.7vw;
+        width: 90%;
+        margin: 1vw auto;
+        color: white;
+        position: absolute;
+        top: 14vw;
+        right: 6vw;
+        z-index: 1000;
+        margin-bottom: 0;
+    }
+    
     .course-view{
         overflow: hidden;
         width: 90%;

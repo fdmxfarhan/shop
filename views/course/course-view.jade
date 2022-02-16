@@ -4,7 +4,7 @@ block styles
     link(rel="stylesheet", href="/css/course.css")
 
 block content
-    h1.course-title= course.title
+    h1.course-title1= course.title
     .course-view
         .content-view
             .statistics 
@@ -98,6 +98,7 @@ block content
                                 input.hidden(type="text" name="courseID" value="#{course._id}")
                                 textarea(name="text" placeholder="دیدگاه خود را بنویسید ... ")
                                 input.submit(type="submit" value="ثبت دیدگاه")
+                                
                     -}else{
                         h1.login-first برای ارسال دیدگاه ابتدا وارد  
                             a(href="/users/login") حساب کاربری 
