@@ -143,6 +143,9 @@
         color: var(--yellow);
         font-size: 1.5vw;
     }
+    .product-cards-area .card .stars i.star-o{
+        color: var(--gray);
+    }
     .product-cards-area .card .stars .star-text{
         display: inline;
         font-size: 0.9vw;

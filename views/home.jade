@@ -100,11 +100,10 @@ html
                             img(src="#{courses[i].cover}")
                             h1.title= courses[i].title
                             .stars 
-                                i.fa.fa-star.star
-                                i.fa.fa-star.star
-                                i.fa.fa-star.star
-                                i.fa.fa-star.star
-                                i.fa.fa-star.star
+                               -for(var j=0; j<courses[i].star; j++)
+                                    i.fa.fa-star.star
+                                -for(var j=0; j<5 - courses[i].star; j++)
+                                    i.fa.fa-star-o.star-o
                                 .star-text (#{courses[i].star} امتیاز)
                             .comments 
                                 i.fa.fa-comment

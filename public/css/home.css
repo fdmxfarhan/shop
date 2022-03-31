@@ -357,6 +357,9 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         color: var(--yellow);
         font-size: 1.5vw;
     }
+    .cards-view .stars i.star-o{
+        color: var(--gray);
+    }
     .cards-view .stars .star-text{
         display: inline;
         font-size: 0.9vw;

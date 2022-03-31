@@ -59,6 +59,43 @@ $(document).ready(function(){
         $('.black-modal').fadeOut(500);
     })
     
+    
+    $('#star1').mouseenter(() => {
+        $('#star1').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star2').removeClass('active').removeClass('fa-star').addClass('fa-star-o');
+        $('#star3').removeClass('active').removeClass('fa-star').addClass('fa-star-o');
+        $('#star4').removeClass('active').removeClass('fa-star').addClass('fa-star-o');
+        $('#star5').removeClass('active').removeClass('fa-star').addClass('fa-star-o');
+    });
+    $('#star2').mouseenter(() => {
+        $('#star1').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star2').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star3').removeClass('active').removeClass('fa-star').addClass('fa-star-o');
+        $('#star4').removeClass('active').removeClass('fa-star').addClass('fa-star-o');
+        $('#star5').removeClass('active').removeClass('fa-star').addClass('fa-star-o');
+    });
+    $('#star3').mouseenter(() => {
+        $('#star1').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star2').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star3').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star4').removeClass('active').removeClass('fa-star').addClass('fa-star-o');
+        $('#star5').removeClass('active').removeClass('fa-star').addClass('fa-star-o');
+    });
+    $('#star4').mouseenter(() => {
+        $('#star1').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star2').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star3').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star4').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star5').removeClass('active').removeClass('fa-star').addClass('fa-star-o');
+    });
+    $('#star5').mouseenter(() => {
+        $('#star1').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star2').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star3').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star4').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+        $('#star5').addClass('active').addClass('fa-star').removeClass('fa-star-o');
+    });
+
     var numberOfImages = parseInt(document.getElementById('images-length').textContent);
     console.log(numberOfImages);
     var images = [];

@@ -110,5 +110,19 @@ router.get('/add-to-cart', ensureAuthenticated, (req, res, next) => {
         res.redirect('/dashboard/cart');
     });
 });
+router.get('/star', (req, res, next) => {
+    var {productID, star} = req.query;
+    star = parseInt(star);
+    Product.findById(productID, (err, product) => {
+        if(product.star < 1) product.star = star;
+        else                 product.star = (product.star + star) / 2;
+        console.log(product.star);
+        Product.updateMany({_id: productID}, {$set: {star: product.star}}, (err, doc) => {
+            if(err) console.log(err);
+            res.redirect(`/product/product-view?productID=${productID}`);
+        });
+    });
+});
+
 
 module.exports = router;
