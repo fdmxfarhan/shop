@@ -179,6 +179,17 @@ router.get('/setting', ensureAuthenticated, (req, res, next) => {
         address: req.user.address,
     })
 });
+router.get('/delete-product-file', ensureAuthenticated, (req, res, next) => {
+    var {productID, index} = req.query;
+    Product.findById(productID, (err, product) => {
+        var files = product.files;
+        files.splice(index, 1);
+        Product.updateMany({_id: productID}, {$set: {files}}, (err) => {
+            if(err) console.log(err);
+            res.redirect(`/product/product-view?productID=${productID}`);
+        });
+    });
+})
 
 
 module.exports = router;

@@ -37,11 +37,10 @@ block content
                     img(src="#{courses[i].cover}")
                 .title= courses[i].title
                 .stars 
-                    i.fa.fa-star.star
-                    i.fa.fa-star.star
-                    i.fa.fa-star.star
-                    i.fa.fa-star.star
-                    i.fa.fa-star.star
+                    -for(var j=0; j<courses[i].star; j++)
+                        i.fa.fa-star.star
+                    -for(var j=0; j<5 - courses[i].star; j++)
+                        i.fa.fa-star-o.star-o
                     .star-text (#{courses[i].star} امتیاز)
                 .price #{courses[i].price} ریال
         -}
@@ -54,22 +53,16 @@ block content
                     img(src="#{products[i].cover}")
                 .title= products[i].title
                 .stars 
-                    i.fa.fa-star.star
-                    i.fa.fa-star.star
-                    i.fa.fa-star.star
-                    i.fa.fa-star.star
-                    i.fa.fa-star.star
+                    -for(var j=0; j<products[i].star; j++)
+                        i.fa.fa-star.star
+                    -for(var j=0; j<5 - products[i].star; j++)
+                        i.fa.fa-star-o.star-o
                     .star-text (#{products[i].star} امتیاز)
                 .price #{products[i].price} ریال
         -}
     
-        
-
     include ../components/add-course
     include ../components/add-product
-
-
-
     script(src="/js/dashboard.js") 
 
 

@@ -89,7 +89,19 @@ router.get('/add-to-cart', ensureAuthenticated, (req, res, next) => {
         res.redirect('/dashboard/cart');
     });
 });
-
+router.get('/star', (req, res, next) => {
+    var {courseID, star} = req.query;
+    star = parseInt(star);
+    Course.findById(courseID, (err, course) => {
+        if(course.star < 1) course.star = star;
+        else                 course.star = (course.star + star) / 2;
+        console.log(course.star);
+        Course.updateMany({_id: courseID}, {$set: {star: course.star}}, (err, doc) => {
+            if(err) console.log(err);
+            res.redirect(`/course/course-view?courseID=${courseID}`);
+        });
+    });
+});
 
 
 module.exports = router;

@@ -5,8 +5,8 @@ var ProductSchema = new mongoose.Schema({
   code: String,
   available: Boolean,
   date: Date,
-  seen: Number,
-  star: Number,
+  seen: {type: Number, default: 0},
+  star: {type: Number, default: 0},
   starNumber: Number,
   category: String, 
   video: Object,
@@ -26,6 +26,7 @@ var ProductSchema = new mongoose.Schema({
     type: [Object],
     default: [],
   },
+  files: {type: [Object], default: []},
 });
 
 var Product = mongoose.model('Product', ProductSchema);

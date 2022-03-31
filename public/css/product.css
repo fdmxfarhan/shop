@@ -7,6 +7,40 @@
         color: var(--darkblue);
         margin-bottom: 0;
     }
+    
+    h1.product-title1{
+        font-family: 'iransans';
+        font-size: 1.7vw;
+        width: 90%;
+        margin: 1vw auto;
+        color: white;
+        position: absolute;
+        top: 14vw;
+        right: 6vw;
+        z-index: 1000;
+        margin-bottom: 0;
+    }
+    .route {
+        font-family: 'iransans';
+        font-size: 1vw;
+        width: 90%;
+        margin: 1vw auto;
+        color: white;
+        position: absolute;
+        top: 17vw;
+        right: 6vw;
+        z-index: 1000;
+        margin-bottom: 0;
+    }
+    .route a{
+        color: white;
+        text-decoration: none;
+        font-family: 'iransans';
+        font-size: 1vw;
+    }
+    .route a:hover{
+        color: var(--hover);
+    }
     .product-view{
         overflow: hidden;
         width: 90%;
@@ -468,6 +502,9 @@
         color: var(--yellow);
         font-size: 1.5vw;
     }
+    .product-cards-area .card .stars i.star-o{
+        color: var(--gray);
+    }
     .product-cards-area .card .stars .star-text{
         display: inline;
         font-size: 0.9vw;
@@ -475,12 +512,12 @@
     }
     .product-view .content-view .tab-content a.delete{
         color: var(--red);
-        margin-right: 1vw;
+        margin-right: 5%;
         padding-bottom: 1vw;
         text-decoration: none;
     }
     .product-view .content-view .tab-content a.delete i{
-        padding: 0 0.5vw;
+        padding-left: 0.5vw;
     }
     .product-view .content-view .tab-content a.delete:hover{
         color: var(--hover);
@@ -585,6 +622,73 @@
     }
     .edit-course i{
         padding-left: 1vw;
+    }
+    form.add-file{
+        width: 90%;
+        margin: auto;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+    }
+    .file-download{
+        width: 90%;
+        margin: auto;
+    }
+    .file-download a{
+        text-decoration: none;
+        color: var(--blue);
+        font-family: 'iransans';
+        font-size: 1vw;
+    }
+    .file-download a:hover{
+        color: var(--hover);
+    }
+    .file-download a i{
+        padding-left: 0.5vw;
+    }
+    form.add-file input{
+        display: inline;
+    }
+    form.add-file input.hidden{display: none;}
+    form.add-file input.submit{
+        font-family: 'iransans';
+        font-size: 1vw;
+        padding: 0.2vw 1vw;
+        border-radius: 0;
+        border-top-left-radius: 0.5vw;
+        border-bottom-left-radius: 0.5vw;
+    }
+    form.add-file input[type=file]{
+        border: var(--gray) 0.1vw dashed;
+        padding: 0.35vw 1vw;
+    }
+    form.add-file input.text{
+        font-family: 'iransans';
+        font-size: 0.87vw;
+        border: var(--gray) 0.1vw dashed;
+        padding: 0.2vw 1vw;
+        border-top-right-radius: 0.5vw;
+        border-bottom-right-radius: 0.5vw;
+    }
+    form.add-file input.text:focus{
+        outline: none;
+    }
+    .stars-view {
+        width: 90%;
+        margin: 1vw auto;
+        overflow: hidden;
+        margin-top: 4vw;
+    }
+    .stars-view a{
+        text-decoration: none;
+    }
+    .stars-view i{
+        font-size: 1.5vw;
+        color: lightgray;
+        cursor: pointer;
+        margin-left: 0.2vw;
+    }
+    .stars-view i.active{
+        color: rgb(255, 208, 0);
     }
 }
 @media only screen and (max-width: 800px) {}

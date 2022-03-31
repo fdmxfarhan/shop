@@ -23,7 +23,27 @@
         z-index: 1000;
         margin-bottom: 0;
     }
-    
+    .route {
+        font-family: 'iransans';
+        font-size: 1vw;
+        width: 90%;
+        margin: 1vw auto;
+        color: white;
+        position: absolute;
+        top: 17vw;
+        right: 6vw;
+        z-index: 1000;
+        margin-bottom: 0;
+    }
+    .route a{
+        color: white;
+        text-decoration: none;
+        font-family: 'iransans';
+        font-size: 1vw;
+    }
+    .route a:hover{
+        color: var(--hover);
+    }
     .course-view{
         overflow: hidden;
         width: 90%;
@@ -491,6 +511,9 @@
         color: var(--yellow);
         font-size: 1.5vw;
     }
+    .product-cards-area .card .stars i.star-o{
+        color: var(--gray);
+    }
     .product-cards-area .card .stars .star-text{
         display: inline;
         font-size: 0.9vw;
@@ -541,6 +564,24 @@
     }
     a.support-button:hover{
         background-color: var(--yellow);
+    }
+    .stars-view {
+        width: 90%;
+        margin: 1vw auto;
+        overflow: hidden;
+        margin-top: 4vw;
+    }
+    .stars-view a{
+        text-decoration: none;
+    }
+    .stars-view i{
+        font-size: 1.5vw;
+        color: lightgray;
+        cursor: pointer;
+        margin-left: 0.2vw;
+    }
+    .stars-view i.active{
+        color: rgb(255, 208, 0);
     }
 }
 @media only screen and (max-width: 800px) {}

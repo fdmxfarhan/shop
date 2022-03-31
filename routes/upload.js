@@ -11,6 +11,7 @@ const Product = require('../models/Product');
 const Setting = require('../models/Setting');
 const mkdirp = require('mkdirp');
 const generateCode = require('../config/generateCode');
+const fs = require('fs');
 
 router.use(bodyparser.urlencoded({ extended: true }));
 
@@ -152,9 +153,34 @@ router.post('/set-cover', ensureAuthenticated, upload.single('myFile'), (req, re
     else {
         var type = file.mimetype.split('/')[0];
         var link = file.destination.slice(6) + '/' + file.originalname;
+        console.log(link);
         Setting.updateMany({}, {$set: {background: {type, link}}}, (err, setting) => {
             if(err) console.log(err);
+            fs.unlink('./public/img/header.jpg', (err) => {
+                if(err) console.log(err);
+                fs.copyFile(path.join(__dirname, '../public') + link, './public/img/header.jpg', (err) => {
+                    if (err) throw err;
+                    console.log('header changed successfuly');
+                });
+            });
             res.redirect('/dashboard/home-setting');
+        });
+    }
+});
+router.post('/product-file', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
+    const {productID, title} = req.body;
+    const file = req.file;
+    if (!file) res.send('no file to upload');
+    else {
+        var type = file.mimetype.split('/')[0];
+        var link = file.destination.slice(6) + '/' + file.originalname;
+        Product.findById(productID, (err, product) => {
+            var files = product.files;
+            files.push({link, type, title});
+            Product.updateMany({_id: productID}, {$set: {files}}, (err) => {
+                if(err) console.log(err);
+                res.redirect(`/product/product-view?productID=${productID}`);
+            });
         });
     }
 });

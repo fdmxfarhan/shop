@@ -4,7 +4,11 @@ block styles
     link(rel="stylesheet", href="/css/product.css")
 
 block content
-    h1.product-title= product.title
+    h1.product-title1= product.title
+    .route 
+        a(href="/product") فروشگاه
+        | / 
+        a(href="/product/product-view?productID=#{product._id}")= product.title
     .product-view
         .content-view
             .cover 
@@ -25,10 +29,62 @@ block content
             .tab-content#tab1 
                 h1.product-title= product.title
                 .description= product.description
-                -if(user && user.role == 'admin')
+                -for(var i=0; i<product.files.length; i++){
+                    .file-download
+                        a(href="#{product.files[i].link}" download) 
+                            i.fa.fa-cloud-download 
+                            | #{product.files[i].title}
+                        -if(user && user.role == 'admin'){
+                            a.delete(href="/dashboard/delete-product-file?productID=#{product._id}&index=#{i}") 
+                                i.fa.fa-trash
+                        -}
+                -}
+                -if(user && user.role == 'admin'){
+                    form.add-file(action="/upload/product-file" enctype="multipart/form-data" method="POST") 
+                        input.hidden(type="text" name="productID" value="#{product._id}")
+                        input.text(type="text" name="title" placeholder="عنوان")
+                        input(type="file" name="myFile")
+                        input.submit(type="submit" value="آپلود")
                     a.delete(href="/product/delete-product?productID=#{product._id}") 
                         i.fa.fa-trash 
                         | حذف محصول
+                -}
+                .stars-view 
+                    -if(product.star >= 1){
+                        a(href="/product/star?productID=#{product._id}&star=#{1}") 
+                            i.fa.fa-star.active#star1
+                    -}else{
+                        a(href="/product/star?productID=#{product._id}&star=#{1}") 
+                            i.fa.fa-star-o#star1
+                    -}
+                    -if(product.star >= 2){
+                        a(href="/product/star?productID=#{product._id}&star=#{2}") 
+                            i.fa.fa-star.active#star2
+                    -}else{
+                        a(href="/product/star?productID=#{product._id}&star=#{2}") 
+                            i.fa.fa-star-o#star2
+                    -}
+                    -if(product.star >= 3){
+                        a(href="/product/star?productID=#{product._id}&star=#{3}") 
+                            i.fa.fa-star.active#star3
+                    -}else{
+                        a(href="/product/star?productID=#{product._id}&star=#{3}") 
+                            i.fa.fa-star-o#star3
+                    -}
+                    -if(product.star >= 4){
+                        a(href="/product/star?productID=#{product._id}&star=#{4}") 
+                            i.fa.fa-star.active#star4
+                    -}else{
+                        a(href="/product/star?productID=#{product._id}&star=#{4}") 
+                            i.fa.fa-star-o#star4
+                    -}
+                    -if(product.star >= 5){
+                        a(href="/product/star?productID=#{product._id}&star=#{5}") 
+                            i.fa.fa-star.active#star5
+                    -}else{
+                        a(href="/product/star?productID=#{product._id}&star=#{5}") 
+                            i.fa.fa-star-o#star5
+                    -}
             .tab-content#tab2.hidden 
                 h1.product-title مشخصات محصول
                 table.property 
@@ -89,7 +145,7 @@ block content
                     .add-img#add-image-button 
                         i.fa.fa-plus
             -if(user && user.role == 'admin'){
-                .edit-course#edit-btn
+                .edit-product#edit-btn
                     i.fa.fa-edit 
                     | ویرایش اطلاعات دوره
             -}

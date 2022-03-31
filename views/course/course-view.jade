@@ -5,6 +5,10 @@ block styles
 
 block content
     h1.course-title1= course.title
+    .route 
+        a(href="/course") دوره های آموزشی 
+        | / 
+        a(href="/course/course-view?courseID=#{course._id}")= course.title
     .course-view
         .content-view
             .statistics 
@@ -52,6 +56,42 @@ block content
                     a.delete(href="/course/delete-course?courseID=#{course._id}") 
                         i.fa.fa-trash 
                         | حذف دوره
+                .stars-view 
+                    -if(course.star >= 1){
+                        a(href="/course/star?courseID=#{course._id}&star=#{1}") 
+                            i.fa.fa-star.active#star1
+                    -}else{
+                        a(href="/course/star?courseID=#{course._id}&star=#{1}") 
+                            i.fa.fa-star-o#star1
+                    -}
+                    -if(course.star >= 2){
+                        a(href="/course/star?courseID=#{course._id}&star=#{2}") 
+                            i.fa.fa-star.active#star2
+                    -}else{
+                        a(href="/course/star?courseID=#{course._id}&star=#{2}") 
+                            i.fa.fa-star-o#star2
+                    -}
+                    -if(course.star >= 3){
+                        a(href="/course/star?courseID=#{course._id}&star=#{3}") 
+                            i.fa.fa-star.active#star3
+                    -}else{
+                        a(href="/course/star?courseID=#{course._id}&star=#{3}") 
+                            i.fa.fa-star-o#star3
+                    -}
+                    -if(course.star >= 4){
+                        a(href="/course/star?courseID=#{course._id}&star=#{4}") 
+                            i.fa.fa-star.active#star4
+                    -}else{
+                        a(href="/course/star?courseID=#{course._id}&star=#{4}") 
+                            i.fa.fa-star-o#star4
+                    -}
+                    -if(course.star >= 5){
+                        a(href="/course/star?courseID=#{course._id}&star=#{5}") 
+                            i.fa.fa-star.active#star5
+                    -}else{
+                        a(href="/course/star?courseID=#{course._id}&star=#{5}") 
+                            i.fa.fa-star-o#star5
+                    -}
             .tab-content#tab2.hidden 
                 .sessions-area
                     -for(var i=0; i<course.sessions.length; i++){
@@ -87,8 +127,6 @@ block content
                             i.fa.fa-plus 
                             | افزودن جلسه
                     -}
-
-
             .tab-content#tab3.hidden 
                 h1.course-title #{course.comments.length} دیدگاه
                 .comments-view 
