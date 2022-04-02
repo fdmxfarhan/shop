@@ -323,19 +323,24 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         display: inline;
     }
     .cards-view {
-        overflow: hidden;
+        /* overflow: hidden; */
         width: 86%;
         margin: 3vw auto;
+        position: relative;
     }
     .cards-view a{
         float: right;
-        width: 24%;
+        width: 20vw;
         margin-right: 1%;
         text-decoration: none;
         color: var(--text);
         background-color: white;
         position: relative;
         overflow: hidden;
+        /* display: inline-block; */
+    }
+    .cards-view .scroll-content{
+        width: 200%;
     }
     .cards-view img{
         /* width: 100%; */
@@ -379,6 +384,29 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         color: var(--yellow);
         font-weight: bold;
         font-size: 1.1vw;
+    }
+    .cards-view h1.section-title{
+        font-family: 'iransans';
+        margin: 0;
+        font-size: 1.2vw;
+        padding: 0 1vw;
+    }
+    .cards-view h1.section-title a{
+        background-color: transparent;
+        font-size: 1vw;
+        float: left;
+        display: block;
+        width: fit-content;
+        color: var(--yellow);
+    }
+    .cards-view .horisontal-scroll{
+        overflow-x: scroll;
+        padding-bottom: 0.5vw;
+        position: relative;
+        scroll-behavior: smooth;
+    }
+    .cards-view .horisontal-scroll::-webkit-scrollbar{
+        display: none;
     }
     button.save{
         border: none;
@@ -429,6 +457,27 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
     form.upload-background button{
         display: inline;
     }
+    .cards-view .next-btn{
+        position: absolute;
+        left: -3vw;
+        top: 9vw;
+        font-size: 3vw;
+        color: var(--lightgray);
+        cursor: pointer;
+    }
+    .cards-view .prev-btn{
+        position: absolute;
+        right: -3vw;
+        top: 9vw;
+        font-size: 3vw;
+        color: var(--lightgray);
+        cursor: pointer;
+    }
+    .cards-view .next-btn:hover,
+    .cards-view .prev-btn:hover{
+        color: var(--blue);
+    }
+    
 }
 @media only screen and (max-width: 800px) {
 

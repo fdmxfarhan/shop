@@ -14,9 +14,15 @@ link(rel="stylesheet", href="/css/components/add-course.css")
                 .text-input 
                     i.fa.fa-dollar
                     input(type="number" name="price" placeholder="هزینه (ریال)")
+                .text-input 
+                    i.fa.fa-dollar
+                    input(type="text" name="fullPrice" placeholder="قیمت بدون تخفیف")
                 .check-input 
                     input(type="checkbox" name="available" id="available" value="true" checked)
                     label(for="available") در دسترس
+                .check-input 
+                    input(type="checkbox" name="showInHome" id="showInHome" value="true" checked)
+                    label(for="showInHome") نمایش در صفحه اصلی
                 
             .break-side 
             .column

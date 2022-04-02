@@ -158,6 +158,7 @@ block content
         .side-bar 
             .price 
                 h1 #{dateConvert.showPrice(Math.floor(course.price))} ریال
+                .fullprice= dateConvert.showPrice(Math.floor(course.fullPrice))
             a.buy(href="/course/add-to-cart?courseID=#{course._id}") خرید دوره
                 i.fa.fa-shopping-cart
             .info 

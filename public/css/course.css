@@ -116,6 +116,15 @@
         padding-left: 0;
         box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.1);
     }
+    .course-view .side-bar .price .fullprice{
+        text-align: center;
+        margin-top: -2vw;
+        margin-bottom: 1vw;
+        color: var(--gray);
+        font-family: 'iransans';
+        font-size: 1vw;
+        text-decoration: line-through;
+    }
     .course-view .side-bar .price h1{
         color: var(--green);
         text-align: center;
@@ -481,6 +490,20 @@
         font-size: 1.2vw;
         font-weight: bold;
         color: var(--orange);
+        overflow: hidden;
+    }
+    .product-cards-area .card .price .fullprice{
+        font-family: 'iransans';
+        font-size: 0.9vw;
+        color: var(--gray);
+        text-decoration: line-through;
+        float: right;
+        padding: 0.2vw 0.6vw;
+    }
+    .product-cards-area .card .price .mainprice{
+        font-family: 'iransans';
+        /* font-size: 0.9vw; */
+        float: right;
     }
     .product-cards-area .card.add{
         background-color: rgb(255, 192, 185);

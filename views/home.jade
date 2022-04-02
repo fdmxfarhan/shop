@@ -94,82 +94,57 @@ html
                         | کلیک کنید
         section 
             .cards-view 
-                -if(courses.length >= 4){
-                    -for(var i=0; i<4; i++){
-                        a(href="/course/course-view?courseID=#{courses[i]._id}") 
-                            img(src="#{courses[i].cover}")
-                            h1.title= courses[i].title
-                            .stars 
-                               -for(var j=0; j<courses[i].star; j++)
-                                    i.fa.fa-star.star
-                                -for(var j=0; j<5 - courses[i].star; j++)
-                                    i.fa.fa-star-o.star-o
-                                .star-text (#{courses[i].star} امتیاز)
-                            .comments 
-                                i.fa.fa-comment
-                                | #{courses[i].comments.length}
-                            .price #{courses[i].price} تومان
-                    -}
-                -}else{
-                    a(href="#") 
-                        img(src="/img/home/cover1.jpg")
-                        h1.title عنوان دوره
-                        .stars 
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            .star-text (5 امتیاز)
-                        .comments 
-                            i.fa.fa-comment
-                            | 65
-                        .price 3,000,000 تومان
-                    a(href="#") 
-                        img(src="/img/home/cover2.jpg")
-                        h1.title عنوان دوره
-                        .stars 
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            .star-text (5 امتیاز)
-                        .comments 
-                            i.fa.fa-comment
-                            | 65
-                        .price 3,000,000 تومان
-                    a(href="#") 
-                        img(src="/img/home/cover3.jpg")
-                        h1.title عنوان دوره
-                        .stars 
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            .star-text (5 امتیاز)
-                        .comments 
-                            i.fa.fa-comment
-                            | 65
-                        .price 3,000,000 تومان
-                    a(href="#") 
-                        img(src="/img/home/cover4.jpg")
-                        h1.title عنوان دوره
-                        .stars 
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            i.fa.fa-star.star
-                            .star-text (5 امتیاز)
-                        .comments 
-                            i.fa.fa-comment
-                            | 65
-                        .price 3,000,000 تومان
-                -}
+                h1.section-title دوره های آموزشی 
+                    a(href="/course")  مشاهده بیشتر ...
+                .next-btn#next-btn1
+                    i.fa.fa-chevron-left
+                .prev-btn#prev-btn1
+                    i.fa.fa-chevron-right
+                .horisontal-scroll#horisontal-scroll1
+                    .scroll-content
+                        -for(var i=0; i<courses.length; i++){
+                            a(href="/course/course-view?courseID=#{courses[i]._id}") 
+                                img(src="#{courses[i].cover}")
+                                h1.title= courses[i].title
+                                .stars 
+                                    -for(var j=0; j<courses[i].star; j++)
+                                        i.fa.fa-star.star
+                                    -for(var j=0; j<5 - courses[i].star; j++)
+                                        i.fa.fa-star-o.star-o
+                                    .star-text (#{courses[i].star} امتیاز)
+                                .comments 
+                                    i.fa.fa-comment
+                                    | #{courses[i].comments.length}
+                                .price #{courses[i].price} تومان
+                        -}
+        section 
+            .cards-view 
+                h1.section-title محصولات
+                    a(href="/product")  مشاهده بیشتر ...
+                .next-btn#next-btn2
+                    i.fa.fa-chevron-left
+                .prev-btn#prev-btn2
+                    i.fa.fa-chevron-right
+                .horisontal-scroll#horisontal-scroll2
+                    .scroll-content
+                        -for(var i=0; i<products.length; i++){
+                            a(href="/product/product-view?productID=#{products[i]._id}") 
+                                img(src="#{products[i].cover}")
+                                h1.title= products[i].title
+                                .stars 
+                                    -for(var j=0; j<products[i].star; j++)
+                                        i.fa.fa-star.star
+                                    -for(var j=0; j<5 - products[i].star; j++)
+                                        i.fa.fa-star-o.star-o
+                                    .star-text (#{products[i].star} امتیاز)
+                                .comments 
+                                    i.fa.fa-comment
+                                    | #{products[i].comments.length}
+                                .price #{products[i].price} تومان
+                        -}
+        
         include ./components/footer
         script.
             document.getElementById('vid').play();
-
+        script(src="/js/home.js") 
 

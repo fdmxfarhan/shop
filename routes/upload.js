@@ -29,17 +29,19 @@ var upload = multer({ storage: storage });
 
 router.post('/add-course', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     const file = req.file;
-    var { title, producer, time, stage, supportNumber, subtitle, support, price, description } = req.body;
+    var { title, producer, time, stage, supportNumber, subtitle, support, fullPrice, price, description, showInHome } = req.body;
     if(subtitle) subtitle = true;
     else         subtitle = false;
     if(support) support = true;
     else         support = false;
+    if(showInHome) showInHome = true;
+    else         showInHome = false;
     
     if (!file) {
         res.send('no file to upload');
     } else {
         var cover = file.destination.slice(6) + '/' + file.originalname;
-        const newCourse = new Course({ title, producer, time, stage, supportNumber, subtitle, support, price, description, cover, lastUpdate: new Date() });
+        const newCourse = new Course({ title, showInHome, producer, time, stage, supportNumber, subtitle, support, price, fullPrice, description, cover, lastUpdate: new Date() });
         newCourse.save()
             .then(course => {
                 // res.redirect('/dashboard');
@@ -51,32 +53,35 @@ router.post('/add-course', ensureAuthenticated, upload.single('myFile'), (req, r
 });
 router.post('/edit-course', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     const file = req.file;
-    var { courseID, title, producer, time, stage, supportNumber, subtitle, support, price, description } = req.body;
+    var { courseID, title, producer, time, stage, supportNumber, subtitle, support, fullPrice, price, description, showInHome } = req.body;
     if(subtitle) subtitle = true;
     else         subtitle = false;
     if(support) support = true;
     else         support = false;
+    if(showInHome) showInHome = true;
+    else         showInHome = false;
     
-    if (!file) {
-        res.send('no file to upload');
-    } else {
-        var cover = file.destination.slice(6) + '/' + file.originalname;
-        Course.updateMany({_id: courseID} , {$set: { title, producer, time, stage, supportNumber, subtitle, support, price, description, cover, lastUpdate: new Date() }}, (err, doc) => {
+    Course.findById(courseID, (err, course) => {
+        var cover = course.cover;
+        if(file) cover = file.destination.slice(6) + '/' + file.originalname;
+        Course.updateMany({_id: courseID} , {$set: { title, showInHome, producer, time, stage, supportNumber, subtitle, support, fullPrice, price, description, cover, lastUpdate: new Date() }}, (err, doc) => {
             res.redirect(`/course/course-view?courseID=${courseID}`);
         });
-    }
+    });
 });
 router.post('/add-product', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     const file = req.file;
-    var { title, category, available, price, description } = req.body;
+    var { title, category, available, price, fullPrice, description, showInHome } = req.body;
     if(available) available = true;
     else         available = false;
+    if(showInHome) showInHome = true;
+    else         showInHome = false;
     
     if (!file) {
         res.send('no file to upload');
     } else {
         var cover = file.destination.slice(6) + '/' + file.originalname;
-        const newProduct = new Product({ title, category, available, price, description, cover, lastUpdate: new Date() });
+        const newProduct = new Product({ title, showInHome, category, available, price, fullPrice, description, cover, lastUpdate: new Date() });
         newProduct.save()
             .then(product => {
                 res.redirect(`/product/product-view?productID=${newProduct._id}`);
@@ -87,18 +92,19 @@ router.post('/add-product', ensureAuthenticated, upload.single('myFile'), (req, 
 });
 router.post('/edit-product', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     const file = req.file;
-    var { productID, title, category, available, price, description } = req.body;
+    var { productID, title, category, available, price, fullPrice, description, showInHome } = req.body;
     if(available) available = true;
     else         available = false;
+    if(showInHome) showInHome = true;
+    else         showInHome = false;
     
-    if (!file) {
-        res.send('no file to upload');
-    } else {
-        var cover = file.destination.slice(6) + '/' + file.originalname;
-        Product.updateMany({_id: productID}, {$set: { title, category, available, price, description, cover, lastUpdate: new Date() }}, (err, doc) => {
+    Product.findById(productID, (err, product) => {
+        var cover = product.cover;
+        if(file) cover = file.destination.slice(6) + '/' + file.originalname;
+        Product.updateMany({_id: productID}, {$set: { title, showInHome, category, available, price, fullPrice, description, cover, lastUpdate: new Date() }}, (err, doc) => {
             res.redirect(`/product/product-view?productID=${productID}`);
         });
-    }
+    });
 });
 router.post('/product-image', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     const file = req.file;

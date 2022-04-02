@@ -104,10 +104,11 @@ function gregorian_to_jalali(g_y, g_m, g_d) {
 function get_year_month_day(date) {
     var convertDate;
     var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear()
+    var m = date.getMonth()+1;
+    var y = date.getFullYear();
     convertDate = gregorian_to_jalali(y, m, d);
-    convertDate[1] += 1;
+    // convertDate[1] += 1;
+    // convertDate[2] += 1;
     return convertDate;
 }
 
@@ -120,9 +121,47 @@ function get_hour_minute_second(time) {
 }
 
 function convertDate(date) {
-    var convertDateTime = get_year_month_day(date.substr(0, 10));
-    convertDateTime = convertDateTime[0] + "/" + convertDateTime[1] + "/" + convertDateTime[2] + " " + date.substr(10);
+    var convertDateTime = get_year_month_day(date);
+    convertDateTime = convertDateTime[0] + "/" + convertDateTime[1] + "/" + convertDateTime[2];
     return convertDateTime;
+}
+
+function convertDateObject(date) {
+    var convertDateTime = gregorian_to_jalali(date.year, date.month, date.day);
+    return {
+        year: parseInt(convertDateTime[0]),
+        month: parseInt(convertDateTime[1]),
+        day: parseInt(convertDateTime[2]),
+    };
+}
+function arrayToObj(date){
+    return {
+        year: parseInt(date[0]),
+        month: parseInt(date[1]),
+        day: parseInt(date[2]),
+    };
+}
+function getNow() {
+    now = new Date();
+    var convertDateTime = get_year_month_day(now);
+    return {
+        year: parseInt(convertDateTime[0]), 
+        month: parseInt(convertDateTime[1]), 
+        day: parseInt(convertDateTime[2]),
+    };
+}
+function objToString(date){
+    return date.year + '/' + date.month + '/' + date.day;
+}
+
+function compareDates(date1, date2){
+    // date1 > date2 =>  1
+    // date1 < date2 => -1
+    if(parseInt(date1.year) >= parseInt(date2.year) && parseInt(date1.month) >= parseInt(date2.month) && parseInt(date1.day) > parseInt(date2.day))
+        return 1;
+    else if(parseInt(date1.year) <= parseInt(date2.year) && parseInt(date1.month) <= parseInt(date2.month) && parseInt(date1.day) < parseInt(date2.day))
+        return -1;
+    return 0;
 }
 
 function get_persian_month(month) {
@@ -236,4 +275,4 @@ var showPrice = (number) => {
     return(result.split("").reverse().join(""));
 }
 
-module.exports = {JalaliDate,j_days_in_month, day_in_week, div, jalali_to_gregorian, gregorian_to_jalali, get_year_month_day, get_hour_minute_second, convertDate, get_persian_month, showPrice};
+module.exports = {JalaliDate,j_days_in_month, day_in_week, div, jalali_to_gregorian, gregorian_to_jalali, get_year_month_day, get_hour_minute_second, convertDate, get_persian_month, showPrice, getNow, compareDates, convertDateObject, objToString, arrayToObj};

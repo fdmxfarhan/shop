@@ -18,5 +18,7 @@ block content
                     -for(var j=0; j<5 - courses[i].star; j++)
                         i.fa.fa-star-o.star-o
                     .star-text (#{courses[i].star} امتیاز)
-                .price #{courses[i].price} ریال
+                .price
+                    .fullprice= courses[i].fullPrice
+                    .mainprice #{courses[i].price} ریال
         -}

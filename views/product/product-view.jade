@@ -130,12 +130,13 @@ block content
                                     i.fa.fa-trash
                             -}
                     -}
-            
         .side-bar 
             .price 
-                h1 #{dateConvert.showPrice(Math.floor(product.price))} ریال
-            a.buy(href="/product/add-to-cart?productID=#{product._id}") خرید محصول
-                i.fa.fa-shopping-cart
+                h1 #{dateConvert.showPrice(Math.floor(product.price))} ریال #{product.available == false ? '(ناموجود)' : ''}
+                .fullprice= dateConvert.showPrice(Math.floor(product.fullPrice))
+            -if(product.available)
+                a.buy(href="/product/add-to-cart?productID=#{product._id}") خرید محصول
+                    i.fa.fa-shopping-cart
             .images-view
                 -for(var i=0; i<product.images.length; i++){
                     .image
@@ -147,7 +148,7 @@ block content
             -if(user && user.role == 'admin'){
                 .edit-product#edit-btn
                     i.fa.fa-edit 
-                    | ویرایش اطلاعات دوره
+                    | ویرایش اطلاعات محصول
             -}
     -if(user && user.role == 'admin'){
         include ../components/add-image 

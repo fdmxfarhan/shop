@@ -8,15 +8,18 @@ var Newsletter = require('../models/Newsletter');
 const sms = require('../config/sms');
 
 router.get('/', (req, res, next) => {
-    Course.find({}, (err, courses) => {
-        Setting.findOne({}, (err, setting) => {
-            res.render('home', {
-                user: req.user,
-                setting,
-                courses,
+    Course.find({showInHome: true}, (err, courses) => {
+        Product.find({showInHome: true}, (err, products) => {
+            Setting.findOne({}, (err, setting) => {
+                res.render('home', {
+                    user: req.user,
+                    setting,
+                    courses,
+                    products,
+                });
             });
-        })
-    })
+        });
+    });
 });
 router.post('/newsletter', (req, res, next) => {
     var {phone} = req.body;

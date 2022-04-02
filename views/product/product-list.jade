@@ -18,5 +18,7 @@ block content
                     -for(var j=0; j<5 - products[i].star; j++)
                         i.fa.fa-star-o.star-o
                     .star-text (#{products[i].star} امتیاز)
-                .price #{products[i].price} ریال
+                .price 
+                    .fullprice= products[i].fullPrice
+                    .mainprice #{products[i].price} ریال #{products[i].available == false ? '(ناموجود)' : ''}
         -}

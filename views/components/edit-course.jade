@@ -33,12 +33,21 @@ link(rel="stylesheet", href="/css/components/add-course.css")
                     -else
                         input(type="checkbox" name="support" id="support" value="true")
                     label(for="support") پشتیبانی
+                .check-input 
+                    -if(course.showInHome)
+                        input(type="checkbox" name="showInHome" id="showInHome" value="true" checked)
+                    -else
+                        input(type="checkbox" name="showInHome" id="showInHome" value="true")
+                    label(for="showInHome") نمایش در صفحه اصلی
                 
             .break-side 
             .column
                 .text-input 
                     i.fa.fa-dollar
                     input(type="number" name="price" placeholder="هزینه (ریال)" value="#{course.price}")
+                .text-input 
+                    i.fa.fa-dollar
+                    input(type="text" name="fullPrice" placeholder="قیمت بدون تخفیف" value="#{course.fullPrice}")
                 textarea(name="description" placeholder="توضیحات")= course.description
                 .upload-area انتخاب عکس کاور
                     i.fa.fa-cloud-upload

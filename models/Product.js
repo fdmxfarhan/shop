@@ -21,12 +21,17 @@ var ProductSchema = new mongoose.Schema({
   },
   cover: String,
   price: Number,
+  fullPrice: {type: String, default: ''},
   lastUpdate: Date,
   properties: {
     type: [Object],
     default: [],
   },
   files: {type: [Object], default: []},
+  showInHome: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 var Product = mongoose.model('Product', ProductSchema);
