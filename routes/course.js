@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
         res.render('./course/course-list',{
             user: req.user,
             courses,
+            dateConvert,
         });
     })
 });

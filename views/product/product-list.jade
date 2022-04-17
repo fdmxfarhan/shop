@@ -19,6 +19,6 @@ block content
                         i.fa.fa-star-o.star-o
                     .star-text (#{products[i].star} امتیاز)
                 .price 
-                    .fullprice= products[i].fullPrice
-                    .mainprice #{products[i].price} ریال #{products[i].available == false ? '(ناموجود)' : ''}
+                    .fullprice= dateConvert.showPrice(products[i].fullPrice)
+                    .mainprice #{dateConvert.showPrice(products[i].price)} ریال #{products[i].available == false || products[i].numberOfAvailable <= 0? '(ناموجود)' : ''}
         -}

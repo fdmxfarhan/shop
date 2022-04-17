@@ -71,7 +71,7 @@ router.post('/edit-course', ensureAuthenticated, upload.single('myFile'), (req, 
 });
 router.post('/add-product', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     const file = req.file;
-    var { title, category, available, price, fullPrice, description, showInHome } = req.body;
+    var { title, category, available, price, fullPrice, numberOfAvailable, description, showInHome } = req.body;
     if(available) available = true;
     else         available = false;
     if(showInHome) showInHome = true;
@@ -81,7 +81,7 @@ router.post('/add-product', ensureAuthenticated, upload.single('myFile'), (req, 
         res.send('no file to upload');
     } else {
         var cover = file.destination.slice(6) + '/' + file.originalname;
-        const newProduct = new Product({ title, showInHome, category, available, price, fullPrice, description, cover, lastUpdate: new Date() });
+        const newProduct = new Product({ title, showInHome, category, available, numberOfAvailable, price, fullPrice, description, cover, lastUpdate: new Date() });
         newProduct.save()
             .then(product => {
                 res.redirect(`/product/product-view?productID=${newProduct._id}`);
@@ -92,7 +92,7 @@ router.post('/add-product', ensureAuthenticated, upload.single('myFile'), (req, 
 });
 router.post('/edit-product', ensureAuthenticated, upload.single('myFile'), (req, res, next) => {
     const file = req.file;
-    var { productID, title, category, available, price, fullPrice, description, showInHome } = req.body;
+    var { productID, title, category, available, price, fullPrice, description, showInHome, numberOfAvailable } = req.body;
     if(available) available = true;
     else         available = false;
     if(showInHome) showInHome = true;
@@ -101,7 +101,7 @@ router.post('/edit-product', ensureAuthenticated, upload.single('myFile'), (req,
     Product.findById(productID, (err, product) => {
         var cover = product.cover;
         if(file) cover = file.destination.slice(6) + '/' + file.originalname;
-        Product.updateMany({_id: productID}, {$set: { title, showInHome, category, available, price, fullPrice, description, cover, lastUpdate: new Date() }}, (err, doc) => {
+        Product.updateMany({_id: productID}, {$set: { title, showInHome, category, available, price, numberOfAvailable, fullPrice, description, cover, lastUpdate: new Date() }}, (err, doc) => {
             res.redirect(`/product/product-view?productID=${productID}`);
         });
     });

@@ -38,8 +38,8 @@ html
                 a.link(href="/") خانه
                 a.link(href="/course") دوره های آموزشی
                 a.link(href="/product") فروشگاه
-                a.link(href="#") خدمات
-                a.link(href="#") اخبار
+                a.link(href="/services") خدمات
+                a.link(href="/news") اخبار
                 a.link(href="#") تماس با ما
                 a.link(href="#") درباره ما
                 //- a.icon(href="#") 
@@ -54,8 +54,7 @@ html
                 h2= setting.title1
                 h1= setting.title2
                 h2.border= setting.title3
-            img.top-logo(src="/img/logo.png")
-        
+            img.top-logo(src="/img/logo.png")       
         section 
             .square-links 
                 a.orange(href="/course") 
@@ -63,13 +62,13 @@ html
                     .text دوره‌های آموزشی
                 a.green(href="/product") 
                     i.fa.fa-microchip
-                    .text محصولات آموزشی
-                a.blue(href="#") 
-                    i.fa.fa-newspaper-o
-                    .text اخبار
-                a.red(href="/product") 
-                    i.fa.fa-shopping-cart
                     .text فروشگاه
+                a.blue(href="/services") 
+                    i.fa.fa-newspaper-o
+                    .text خدمات
+                a.red(href="/news") 
+                    i.fa.fa-shopping-cart
+                    .text اخبار
         section 
             .click-links 
                 a(href="/course") 

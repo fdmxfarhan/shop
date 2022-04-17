@@ -32,8 +32,8 @@ var ProductSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  numberOfAvailable: {type: Number, default: 10},
 });
-
 var Product = mongoose.model('Product', ProductSchema);
 
 module.exports = Product;

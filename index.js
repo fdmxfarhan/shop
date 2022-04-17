@@ -22,6 +22,8 @@ var uploadRoute = require('./routes/upload');
 var settingRoute = require('./routes/setting');
 var paymentRoute = require('./routes/payment');
 var productRoute = require('./routes/product');
+var servicesRoute = require('./routes/services');
+var newsRoute = require('./routes/news');
 
 
 // Mongo DB connect
@@ -99,6 +101,8 @@ app.use('/dashboard', dashboardRoute);
 app.use('/course', courseRoute);
 app.use('/payment', paymentRoute);
 app.use('/product', productRoute);
+app.use('/news', newsRoute);
+app.use('/services', servicesRoute);
 
 
 

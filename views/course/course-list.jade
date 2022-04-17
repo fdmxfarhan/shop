@@ -19,6 +19,6 @@ block content
                         i.fa.fa-star-o.star-o
                     .star-text (#{courses[i].star} امتیاز)
                 .price
-                    .fullprice= courses[i].fullPrice
-                    .mainprice #{courses[i].price} ریال
+                    .fullprice= dateConvert.showPrice(courses[i].fullPrice)
+                    .mainprice #{dateConvert.showPrice(courses[i].price)} ریال
         -}

@@ -16,6 +16,9 @@ link(rel="stylesheet", href="/css/components/add-course.css")
                     i.fa.fa-dollar
                     input(type="number" name="price" placeholder="هزینه (ریال)" value="#{product.price}")
                 .text-input 
+                    i.fa.fa-check
+                    input(type="number" name="numberOfAvailable" placeholder="تعداد موجود" value="#{product.numberOfAvailable}")
+                .text-input 
                     i.fa.fa-dollar
                     input(type="text" name="fullPrice" placeholder="قیمت بدون تخفیف" value="#{typeof(product.fullPrice) == 'undefined' ? '': product.fullPrice}")
                 .check-input 

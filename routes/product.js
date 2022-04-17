@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
         res.render('./product/product-list',{
             user: req.user,
             products,
+            dateConvert,
         });
     })
 });

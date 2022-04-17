@@ -132,9 +132,9 @@ block content
                     -}
         .side-bar 
             .price 
-                h1 #{dateConvert.showPrice(Math.floor(product.price))} ریال #{product.available == false ? '(ناموجود)' : ''}
+                h1 #{dateConvert.showPrice(Math.floor(product.price))} ریال #{product.available == false || product.numberOfAvailable <= 0? '(ناموجود)' : ''}
                 .fullprice= dateConvert.showPrice(Math.floor(product.fullPrice))
-            -if(product.available)
+            -if(product.available && product.numberOfAvailable > 0)
                 a.buy(href="/product/add-to-cart?productID=#{product._id}") خرید محصول
                     i.fa.fa-shopping-cart
             .images-view

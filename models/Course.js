@@ -44,7 +44,6 @@ var CourseSchema = new mongoose.Schema({
 });
 
 var Course = mongoose.model('Course', CourseSchema);
-
 module.exports = Course;
 
 
