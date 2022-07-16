@@ -20,6 +20,16 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/services-view', (req, res, next) => {
+    var {serviceID} = req.query;
+    Service.findById(serviceID, (err, service) => {
+        res.render('./services/services-view', {
+            user: req.user,
+            service,
+        })
+    })
+})
+
 module.exports = router;
 
 
